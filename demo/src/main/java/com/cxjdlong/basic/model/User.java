@@ -2,6 +2,7 @@ package com.cxjdlong.basic.model;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
@@ -14,7 +15,7 @@ public class User {
 	private String id;
 	
 	@Past(message = "{user.datetime.error}")
-	@NotEmpty(message = "{user.datetime.null}")
+	@NotNull(message = "{user.datetime.null}")
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdatetime;
 	
