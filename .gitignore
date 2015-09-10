@@ -3,4 +3,4 @@
 /demo/.classpath
 /demo/.settings/org.eclipse.jdt.core.prefs
 config.properties
-/demo/.settings/org.eclipse.core.resources.prefs
+#/demo/.settings/org.eclipse.core.resources.prefs
