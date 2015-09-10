@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/resources/css/main.css">
 </head>
 <body>
 hello.jsp <br>
@@ -20,6 +21,19 @@ model.addAttribute(username) string = ${string}
 reg Post<br/>
 user.toString 表单提交接收<br/>
 user.toString = ${usertoString}<br/>
-<a href="reg.do">添加用户</a>
+<a href="reg.do">添加用户</a><br/>
+<hr/>
+
+/login.do?username=**&usernam2=***
+局部异常处理
+username = usernam2 <br/>-> set username to session
+<font color="red">${longUmSession}</font>
+
+<hr/>
+
+spring 3.0.5之后用参数 spring-mvc.xml --> mvc:resources
+/resources/**  <br/>
+**resources文件夹下所有的文件夹及文件
+将静态文件指定到特殊文件夹中统一处理
 </body>
 </html>

@@ -17,12 +17,26 @@ uname2=${uname2}<br/>
 model.addAttribute(username) string = ${string}
 
 <hr/>
-
-<sf:form method="post" modelAttribute="user">
+reg1 1 file
+<sf:form method="post" modelAttribute="user" enctype="multipart/form-data">
 	id <sf:input path="id" /><br/><sf:errors path="id" cssStyle="color:red"/><br/>
 	name <sf:input path="name" /><br/><sf:errors path="name" cssStyle="color:red"/><br/>
 	pwd <sf:input path="pwd" /><br/><sf:errors path="pwd" cssStyle="color:red"/><br/>
 	createdatetime <sf:input path="createdatetime" /><br/><sf:errors path="createdatetime" cssStyle="color:red"/><br/>
+	upload-Attache1:<input type="file" name="attach" /><br/>
+	<input type="submit" value=" 添加用户  " />
+</sf:form>
+<hr/><br/>
+<p>reg2.do more file</p>
+
+<sf:form method="post" modelAttribute="user" enctype="multipart/form-data">
+	id <sf:input path="id" /><br/><sf:errors path="id" cssStyle="color:red"/><br/>
+	name <sf:input path="name" /><br/><sf:errors path="name" cssStyle="color:red"/><br/>
+	pwd <sf:input path="pwd" /><br/><sf:errors path="pwd" cssStyle="color:red"/><br/>
+	createdatetime <sf:input path="createdatetime" /><br/><sf:errors path="createdatetime" cssStyle="color:red"/><br/>
+	upload-Attache1:<input type="file" name="attachs" /><br/>
+	upload-Attache2:<input type="file" name="attachs" /><br/>
+	upload-Attache3:<input type="file" name="attachs" /><br/>
 	<input type="submit" value=" 添加用户  " />
 </sf:form>
 </body>
