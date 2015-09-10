@@ -12,10 +12,18 @@
 hello.jsp <br>
 spring - spring-mvc - mybatis <br>
 HelloWorld!<br>
+
 <hr/>
 method=${uname}<br/>
 uname2=${uname2}<br/>
 model.addAttribute(username) string = ${string}
+<hr/>
+
+<a href="users.do">用户列表 方法</a><br/>
+
+<hr/>
+show 方法<br/>
+username=${user.name }---id = ${user.id}---pwd=${user.pwd }<br>
 
 <hr/>
 reg Post<br/>

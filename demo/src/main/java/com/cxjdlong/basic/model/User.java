@@ -30,67 +30,91 @@ public class User {
 	private Date createTime;
 
 	private Date updateTime;
+	
+	
+	public User(){
+	}
+
 
 	public String getId() {
 		return id;
 	}
 
+
 	public void setId(String id) {
-		this.id = id == null ? null : id.trim();
+		this.id = id;
 	}
+
 
 	public Date getCreatedatetime() {
 		return createdatetime;
 	}
 
+
 	public void setCreatedatetime(Date createdatetime) {
 		this.createdatetime = createdatetime;
 	}
+
 
 	public Date getModifydatetime() {
 		return modifydatetime;
 	}
 
+
 	public void setModifydatetime(Date modifydatetime) {
 		this.modifydatetime = modifydatetime;
 	}
+
 
 	public String getName() {
 		return name;
 	}
 
+
 	public void setName(String name) {
-		this.name = name == null ? null : name.trim();
+		this.name = name;
 	}
+
 
 	public String getPwd() {
 		return pwd;
 	}
 
+
 	public void setPwd(String pwd) {
-		this.pwd = pwd == null ? null : pwd.trim();
+		this.pwd = pwd;
 	}
+
 
 	public Date getCreateTime() {
 		return createTime;
 	}
 
+
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
+
 
 	public Date getUpdateTime() {
 		return updateTime;
 	}
 
+
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", createdatetime=" + createdatetime + ", modifydatetime=" + modifydatetime
-				+ ", name=" + name + ", pwd=" + pwd + ", createTime=" + createTime + ", updateTime=" + updateTime + "]";
+
+	public User(String id, String name, String pwd) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.pwd = pwd;
 	}
 	
+
+	
+
+
 }
