@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cxjdlong.basic.dao.MenutreeDao">
+
+	
+	<select id="getMenutreeByFID" resultType="com.cxjdlong.basic.model.Menutree" parameterType="java.lang.String">
+		select * from menutree where fid=0 and id in (${id}) order by fieldsOrder asc
+	</select>
+
+	<select id="getMenutreeByZID" resultType="com.cxjdlong.basic.model.Menutree" parameterType="java.lang.String">
+		select * from menutree where fid=#{fid} and id in (${id}) order by fieldsOrder asc
+	</select>
+
+	<select id="getAllList" resultType="com.cxjdlong.basic.model.Menutree">
+		select * from menutree order by fieldsOrder asc
+	</select>
+	
+	<select id="getMenutreeByIdIn" resultType="com.cxjdlong.basic.model.Menutree" parameterType="java.lang.String">
+		select * from menutree where id in (${id})
+	</select>
+</mapper>
