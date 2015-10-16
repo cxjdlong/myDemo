@@ -1,8 +1,10 @@
 package com.cxjdlong.basic.model;
 
 import java.sql.Date;
+import java.util.List;
 
 public class Createnews {
+	
 	private int id ;
 	private String seoKeyword;				
 	private String seoDescription;				
@@ -16,7 +18,7 @@ public class Createnews {
 	private Date addtimes  ;
 	private Date updatetime ;
 	
-	private Createnewstype newstype;
+	private List<Createnewstype> newstypelist;
 	
 	public int getClassID() {
 		return classID;
@@ -92,13 +94,12 @@ public class Createnews {
 	public void setUpdatetime(Date updatetime) {
 		this.updatetime = updatetime;
 	}
-
-	public Createnewstype getNewstype() {
-		return newstype;
+	public List<Createnewstype> getNewstypelist() {
+		return newstypelist;
 	}
-	public void setNewstype(Createnewstype newstype) {
-		this.newstype = newstype;
-	}    
-	
+	public void setNewstypelist(List<Createnewstype> newstypelist) {
+		this.newstypelist = newstypelist;
+	}
+
 
 }

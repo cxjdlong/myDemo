@@ -19,8 +19,15 @@
 		insert into createnews
 	</insert>
 	
-	<select id="getFind" resultType="com.cxjdlong.basic.model.Createnews" parameterType="Map">
-		SELECT * from createnews LEFT JOIN createnewstype ON createnews.classID=createnewstype.id limit ${offset},${size}
+	<resultMap type="com.cxjdlong.basic.model.Createnews" id="newsMap" autoMapping="true">
+			<collection property="newstypelist" ofType="com.cxjdlong.basic.model.Createnewstype">
+				<id column="t_id" property="id" />
+				<result column="className" property="className" />
+				<result column="url" property="url" />
+			</collection>
+	</resultMap>
+	<select id="getFind" resultMap="newsMap" parameterType="Map">
+		SELECT *,t2.id as 't_id' from createnews t1 LEFT JOIN createnewstype t2 ON t1.classID=t2.id where t1.id=34
 	</select>
 	
 	<select id="getFindTotal" resultType="int">

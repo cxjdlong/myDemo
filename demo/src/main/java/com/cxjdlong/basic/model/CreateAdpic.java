@@ -56,6 +56,7 @@ public class CreateAdpic {
 	public void setIsRecommend(int isRecommend) {
 		this.isRecommend = isRecommend;
 	}
+	
 	public int getPicState() {
 		return picState;
 	}

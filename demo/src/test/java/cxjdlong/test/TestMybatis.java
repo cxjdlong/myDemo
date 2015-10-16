@@ -80,12 +80,16 @@ public class TestMybatis {
 	
 	@Test
 	public void test4(){
-		SystemContext.setPageOffset(1);
+		SystemContext.setPageOffset(34);
 		SystemContext.setPageSize(1);
 		Pager<Createnews> mp = newsService.find();
 		int mplistSize = mp.getDates().size();
 		System.out.println("size = "+mplistSize);
-		System.out.println(JSON.toJSONStringWithDateFormat(mp,"yyyy-mm-yy HH:mm:ss"));
+//		for (int a=0 ;a<mp.getDates().size();a++){
+//			System.out.println("--"+JSON.toJSONStringWithDateFormat(mp.getDates().get(a),"yyyy-mm-yy HH:mm:ss")+"\n");
+//		}
+//		System.out.println(JSON.toJSONStringWithDateFormat((mp.getDates().get(0)).getNewstypelist(),"yyyy-mm-yy HH:mm:ss"));
+		System.out.println(JSON.toJSONStringWithDateFormat(mp.getDates(),"yyyy-mm-yy HH:mm:ss"));
 	}
 	
 	private NewsServiceI newsService;
