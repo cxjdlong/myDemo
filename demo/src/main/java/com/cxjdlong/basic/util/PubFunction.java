@@ -1,6 +1,8 @@
 package com.cxjdlong.basic.util;
 
 
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,6 +11,11 @@ import java.util.Date;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.io.FileUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 public class PubFunction {
 
@@ -216,7 +223,6 @@ public class PubFunction {
 			  strval += m.group(i+1)+",";
 		  }
 		}
-		
 		return strval;
 	}
 	/**
@@ -265,5 +271,23 @@ public class PubFunction {
 
 			}	
 			
-
+			public boolean upLoadFun(HttpServletRequest req,MultipartFile attach) {			
+				try {				
+					String rootPath = req.getSession().getServletContext().getRealPath("/resources/upload/");
+					System.out.println("root Upload File Path="+rootPath);
+					File f = new File(rootPath+File.separator+attach.getOriginalFilename());
+					FileUtils.copyInputStreamToFile(attach.getInputStream(), f);		
+//					String miaosu =  "upload :<br/>getName[属性名]="+ attach.getName()+
+//							" , <br/>getOriginalFilename[ 文件名]=" + attach.getOriginalFilename()+ 
+//							" , <br/>getContentType[类型] =" + attach.getContentType()+
+//							" , <br/>文件 file=" + rootPath+"/"+attach.getOriginalFilename();
+					
+				} catch (IOException e) {
+					System.out.println("*********** upLoadFun error ***********");
+					e.printStackTrace();
+					return false;
+				}
+				return true;
+			}
+			
 }

@@ -54,6 +54,11 @@ public class CompanyServiceImpl implements CompanyServiceI {
 		pager.setTotalRecord(totalRecord);
 		return pager;
 	}
+	@Override
+	public Createcompanyinfo getcompanyByKey(String key) {
+		
+		return companyDao.selectByKey(key);
+	}
 
 
 }

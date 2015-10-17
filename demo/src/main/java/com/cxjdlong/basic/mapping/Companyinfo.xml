@@ -6,5 +6,13 @@
 	<select id="selectByID" resultType="com.cxjdlong.basic.model.Createcompanyinfo" parameterType="int">
 		select * from createcompanyinfo where id = #{id}
 	</select>
+
+	<select id="selectByKey" resultType="com.cxjdlong.basic.model.Createcompanyinfo" parameterType="String">
+		select * from createcompanyinfo where keyid = #{key}
+	</select>
+
+	<update id="updateByID" parameterType="com.cxjdlong.basic.model.Createcompanyinfo">
+        update createcompanyinfo set seoKeyword=#{seoKeyword},seoDescription=#{seoDescription}, content = #{content},addtimes=#{addtimes},updateTimes=now() where keyid = #{keyid}
+  </update>
 	
 </mapper>

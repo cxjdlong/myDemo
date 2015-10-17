@@ -7,6 +7,8 @@ public interface CompanyServiceI {
 	
 	public Createcompanyinfo getcompanyByID(int id);
 	
+	public Createcompanyinfo getcompanyByKey(String key);
+	
 	public void updateByID (Createcompanyinfo company);
 
 	public Pager<Createcompanyinfo> find();

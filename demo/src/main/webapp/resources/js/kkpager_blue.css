@@ -1,0 +1,45 @@
+#kkpager {
+	FONT-SIZE: 13px; COLOR: #999; PADDING-BOTTOM: 5px; PADDING-TOP: 5px; PADDING-LEFT: 0px; CLEAR: both; PADDING-RIGHT: 0px
+}
+#kkpager A {
+	CURSOR: pointer; BORDER-TOP: #ccc 1px solid; BORDER-RIGHT: #ccc 1px solid; BACKGROUND: #fff; BORDER-BOTTOM: #ccc 1px solid; FLOAT: left; COLOR: #999; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT: 10px; TEXT-DECORATION: none; BORDER-LEFT: #ccc 1px solid; DISPLAY: inline; PADDING-RIGHT: 10px; MARGIN-RIGHT: 5px; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px
+}
+#kkpager SPAN.disabled {
+	BORDER-TOP: #dfdfdf 1px solid; BORDER-RIGHT: #dfdfdf 1px solid; BORDER-BOTTOM: #dfdfdf 1px solid; FLOAT: left; COLOR: #dfdfdf; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT: 10px; BORDER-LEFT: #dfdfdf 1px solid; DISPLAY: inline; PADDING-RIGHT: 10px; BACKGROUND-COLOR: #fff; MARGIN-RIGHT: 5px; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px
+}
+#kkpager SPAN.curr {
+	BORDER-TOP: #31ace2 1px solid; BORDER-RIGHT: #31ace2 1px solid; BACKGROUND: #f0fdff; BORDER-BOTTOM: #31ace2 1px solid; FLOAT: left; COLOR: #31ace2; PADDING-BOTTOM: 3px; PADDING-TOP: 3px; PADDING-LEFT: 10px; BORDER-LEFT: #31ace2 1px solid; DISPLAY: inline; PADDING-RIGHT: 10px; MARGIN-RIGHT: 5px; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px
+}
+#kkpager A:hover {
+	BORDER-TOP: #31ace2 1px solid; BORDER-RIGHT: #31ace2 1px solid; BORDER-BOTTOM: #31ace2 1px solid; COLOR: #fff; BORDER-LEFT: #31ace2 1px solid; BACKGROUND-COLOR: #31ace2
+}
+#kkpager SPAN.normalsize {
+	
+}
+#kkpager_gopage_wrap {
+	POSITION: relative; LEFT: 0px; TOP: 0px
+}
+#kkpager_btn_go {
+	BORDER-LEFT-WIDTH: 0px; OVERFLOW: hidden; CURSOR: pointer; HEIGHT: 18px; BORDER-RIGHT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; POSITION: absolute; COLOR: #fff; PADDING-BOTTOM: 0px; TEXT-ALIGN: center; PADDING-TOP: 0px; PADDING-LEFT: 0px; LEFT: 0px; MARGIN: 0px; DISPLAY: none; LINE-HEIGHT: 140%; TOP: -2px; PADDING-RIGHT: 0px; BORDER-TOP-WIDTH: 0px; WIDTH: 44px; BACKGROUND-COLOR: #31ace2; -moz-border-radius: 3px; -webkit-border-radius: 3px
+}
+#kkpager_btn_go_input {
+	BORDER-TOP: #dfdfdf 1px solid; HEIGHT: 14px; BORDER-RIGHT: #dfdfdf 1px solid; BORDER-BOTTOM: #dfdfdf 1px solid; POSITION: relative; COLOR: #999; TEXT-ALIGN: center; OUTLINE-STYLE: none; MARGIN-LEFT: 1px; LEFT: 0px; BORDER-LEFT: #dfdfdf 1px solid; TOP: 0px; WIDTH: 36px; MARGIN-RIGHT: 1px; -moz-border-radius: 3px; -webkit-border-radius: 3px
+}
+.focus#kkpager_btn_go_input {
+	BORDER-TOP-COLOR: #31ace2; BORDER-BOTTOM-COLOR: #31ace2; BORDER-RIGHT-COLOR: #31ace2; BORDER-LEFT-COLOR: #31ace2
+}
+#kkpager .pageBtnWrap {
+	FLOAT: left
+}
+#kkpager .infoTextAndGoPageBtnWrap {
+	FLOAT: right
+}
+#kkpager .spanDot {
+	FLOAT: left; MARGIN-RIGHT: 5px
+}
+#kkpager .currPageNum {
+	COLOR: #fd7f4d
+}
+#kkpager .infoTextAndGoPageBtnWrap {
+	PADDING-TOP: 5px
+}

@@ -14,6 +14,8 @@ public interface CompanyDao {
 	
 	Createcompanyinfo selectByID(@Param(value = "id") int id);
 	
+	Createcompanyinfo selectByKey(@Param(value = "key") String key);
+	
 	void delectByID (@Param(value = "id") String id);
 	
 	List<Createcompanyinfo> getFind(Map<String, String> map);

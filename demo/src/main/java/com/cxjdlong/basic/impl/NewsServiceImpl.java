@@ -62,8 +62,9 @@ public class NewsServiceImpl implements NewsServiceI {
 		Pager<Createnews> pager = new Pager<Createnews>();
 		pager.setDates(dates);
 		pager.setPageSize(size);
-		pager.setPageoffSise(offset);
+		pager.setPageoffSize(offset);
 		pager.setTotalRecord(totalRecord);
+		pager.setTotalPage();
 		return pager;
 	}
 	
