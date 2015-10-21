@@ -1,38 +1,17 @@
-<%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-<link href="/mfolder/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/resources/mfolder/css/style.css" rel="stylesheet" type="text/css" />
 
-<link rel="stylesheet" type="text/css" href="/js/kkpager_blue.css" />
-<script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="/js/ptjs.js"></script>
+<link rel="stylesheet" type="text/css" href="/resources/js/kkpager_blue.css" />
+<script type="text/javascript" src="/resources/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/resources/js/ptjs.js"></script>
 
-<script type="text/javascript">
-$(document).ready(function(){
-  $(".click").click(function(){
-  $(".tip").fadeIn(200);
-  });
-  
-  $(".tiptop a").click(function(){
-  $(".tip").fadeOut(200);
-});
-
-  $(".sure").click(function(){
-  $(".tip").fadeOut(100);
-});
-
-  $(".cancel").click(function(){
-  $(".tip").fadeOut(100);
-});
-
-});
-
-</script>
-<s:property value="showManage" escape="false"/>
+${showManage }
 </head>
 
 
@@ -54,7 +33,7 @@ $(document).ready(function(){
         
         
         <ul class="toolbar1">
-        <li><span><img src="/mfolder/images/t05.png" /></span>设置</li>
+        <li><span><img src="/resources/mfolder/images/t05.png" /></span>设置</li>
         </ul>
     
     </div>
@@ -70,27 +49,16 @@ $(document).ready(function(){
         </thead>
         
         <tbody> 
-        <s:iterator value="page_list" id="a" status="stuts">      
+        <c:forEach items="${pager.dates}" var="protype" varStatus="stuts">
 	        <tr>
-		        <td width="25"><input name="chekclistid" type="checkbox" value="<s:property value="#a.id" />" /></td>
-		        <td><s:property value="#a.className" /></td>
-		        <td><s:property value="#a.url" /></td>		     
+		        <td width="25"><input name="chekclistid" type="checkbox" value="${protype.id }" /></td>
+		        <td>${protype.className}</td>
+		        <td>${protype.url}</td>		     
 	        </tr>  
-	    </s:iterator>    
+	    </c:forEach>
         </tbody>
     </table>
-    
-   
-    <div style="width:800px;margin:0 auto;">
-    	<div id="kkpager"></div>
     </div>
-    
-    </div>
-    
-    <script type="text/javascript">
-	$('.tablelist tbody tr:odd').addClass('odd');
-	</script>
-
 </body>
 
 </html>

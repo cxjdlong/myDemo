@@ -19,7 +19,14 @@ public class CreateProduct {
 	private Date updateTimes;				//	修改时间	datetime NULL
 	private int looknum;				//	点击次数	bigint(20) NULL
 	private long proOrderNum;
+	private Createprotype protype;
 	
+	public Createprotype getProtype() {
+		return protype;
+	}
+	public void setProtype(Createprotype protype) {
+		this.protype = protype;
+	}
 	public long getProOrderNum() {
 		return proOrderNum;
 	}

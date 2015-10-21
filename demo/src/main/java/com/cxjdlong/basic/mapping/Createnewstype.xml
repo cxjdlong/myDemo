@@ -2,28 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.cxjdlong.basic.dao.CreatenewstypeDao">
 
-	
-	<select id="getResourceByFID" resultType="com.cxjdlong.basic.model.Resourcefields" parameterType="java.lang.String">
-		select * from resourcefields where fid=0 and id in (${id}) order by fieldsOrder asc
+	<select id="selectByID" resultType="com.cxjdlong.basic.model.Createnewstype" parameterType="int">
+		select * from createnewstype where id=#{id}
 	</select>
 
-	<select id="getResourceByZID" resultType="com.cxjdlong.basic.model.Resourcefields" parameterType="java.lang.String">
-		select * from resourcefields where fid=#{fid} and id in (${id}) order by fieldsOrder asc
-	</select>
+	<delete id="delectByID" parameterType="java.lang.String">
+		delete from createnewstype where id in (${id})
+	</delete>
 
-	<select id="getAllList" resultType="com.cxjdlong.basic.model.Resourcefields">
-		select * from resourcefields order by fieldsOrder asc
-	</select>
+	<update id="updateByID" parameterType="com.cxjdlong.basic.model.Createnewstype">
+		update createnewstype set className=#{className} where id=#{id}
+	</update>
 	
-	<select id="getResourceById" resultType="com.cxjdlong.basic.model.Resourcefields" parameterType="java.lang.String">
-		select * from resourcefields where id = #{id}
-	</select>
-	
-	<select id="getFind" resultType="com.cxjdlong.basic.model.Resourcefields" parameterType="Map">
-		select * from resourcefields limit ${offset},${size}
-	</select>
+	<insert id="add" parameterType="com.cxjdlong.basic.model.Createnewstype">
+		insert into createnewstype
+	</insert>
 	
 	<select id="getFindTotal" resultType="int">
-		select count(id) from resourcefields 
+		select count(id) from createnews 
+	</select>
+	
+	<select id="getFind" resultType="com.cxjdlong.basic.model.Createnewstype" parameterType="Map">
+		SELECT * from createnewstype order by id desc  limit ${offset},${size}
 	</select>
 </mapper>

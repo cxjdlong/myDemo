@@ -1,10 +1,19 @@
 package com.cxjdlong.basic.service;
 
-import com.cxjdlong.basic.model.User;
+import com.cxjdlong.basic.model.Pager;
+import com.cxjdlong.basic.model.CreateUser;
 
 public interface UserServiceI {
 
-	public User getUserById(String id);
+	public void delectByID (String id);
+	
+	public void updateByID (CreateUser user);
+		
+	public CreateUser selectByID(int id);
+	
+	public void add(CreateUser user);
+	
+	public Pager<CreateUser> find();
 
 	
 }

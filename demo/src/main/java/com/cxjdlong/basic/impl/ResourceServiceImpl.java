@@ -67,7 +67,7 @@ public class ResourceServiceImpl implements ResourceServiceI {
 		Pager<Resourcefields> pager = new Pager<Resourcefields>();
 		pager.setDates(dates);
 		pager.setPageSize(size);
-		pager.setPageoffSise(offset);
+		pager.setPageoffSize(offset);
 		pager.setTotalRecord(totalRecord);
 		return pager;
 	}

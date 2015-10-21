@@ -1,49 +1,21 @@
-<%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-<link href="/mfolder/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/resources/mfolder/css/style.css" rel="stylesheet" type="text/css" />
 
-<link rel="stylesheet" type="text/css" href="/js/kkpager_blue.css" />
-<script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="/js/kkpager.min.js"></script>
-<script type="text/javascript" src="/js/pjs.js"></script>
-
+<link rel="stylesheet" type="text/css" href="/resources/js/kkpager_blue.css" />
+<script type="text/javascript" src="/resources/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/resources/js/kkpager.min.js"></script>
+<script type="text/javascript" src="/resources/js/pjs.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){
-  $(".click").click(function(){
-  $(".tip").fadeIn(200);
-  });
-  
-  $(".tiptop a").click(function(){
-  $(".tip").fadeOut(200);
-});
-
-  $(".sure").click(function(){
-  $(".tip").fadeOut(100);
-});
-
-  $(".cancel").click(function(){
-  $(".tip").fadeOut(100);
-});
-
-});
-
-function getParameter(name) { 
-	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); 
-	var r = window.location.search.substr(1).match(reg); 
-	if (r!=null) return unescape(r[2]); return null;
-}
-
-//init
 $(function(){
-	var totalPage = ${pageForm.maxPage};
-	var fsid = ${id};
-	var totalRecords = ${pageForm.page_record_count};
-	var pageNo = ${page};
+	var totalPage = ${pager.totalPage};
+	var totalRecords =${pager.totalRecord} ;
+	var pageNo = ${pager.pageoffSize};
 	if(!pageNo){
 		pageNo = 1;
 	}
@@ -56,16 +28,14 @@ $(function(){
 		//总数据条数
 		totalRecords : totalRecords,
 		//链接前部
-		hrefFormer : 'pro_list',
+		hrefFormer : '/masteLo/pros/list',
 		//链接尾部
 		hrefLatter : '.html',
-		getLink : function(n){return this.hrefFormer + this.hrefLatter + "?id="+fsid+"&page="+n;},
-		
-		
+		getLink : function(n){return this.hrefFormer +"/"+n+ this.hrefLatter;},	
 	});
 });
 </script>
-<s:property value="showManage" escape="false"/>
+${showManage }
 </head>
 
 
@@ -87,7 +57,7 @@ $(function(){
         
         
         <ul class="toolbar1">
-        <li><span><img src="/mfolder/images/t05.png" /></span>设置</li>
+        <li><span><img src="/resources/mfolder/images/t05.png" /></span>设置</li>
         </ul>
     
     </div>
@@ -109,34 +79,26 @@ $(function(){
         </thead>
         
         <tbody> 
-        <s:iterator value="page_list" id="a" status="stuts">      
+        <c:forEach items="${pager.dates}" var="pro" varStatus="stuts">
 	        <tr>
-		        <td><input name="chekclistid" type="checkbox" value="<s:property value="#a.id" />" /></td>
-		        <td class="imgtd"><img src="<s:property value="#a.proImg" />" onload="javascript:DrawImage(this,'100');" border="0"/></td>
-		        <td><s:property value="#a.productName" /></td>
-		        <td><s:property value="#a.proClassName" /></td>
-		        <td><s:if test="#a.isRecommend==1"><font color="red">推荐</font></s:if><s:else>否</s:else></td>
-		        <td><s:property value="#a.author" /></td>
-		        <td><s:date name="#a.addTimes" format="yyyy-MM-dd"/></td>
-		        <td><s:property value="#a.looknum" /></td>
+		        <td><input name="chekclistid" type="checkbox" value="${id}" /></td>
+		        <td class="imgtd"><img src="${pro.proImg }" onload="javascript:DrawImage(this,'100');" border="0"/></td>
+		        <td>${pro.productName}</td>
+		        <td>${pro.protype.className}</td>
+		        <td><c:if test="${pro.isRecommend==1 }"><font color="red">推荐</font></c:if><c:if test="${pro.isRecommend == 0 }">否</c:if></td>
+		        <td>${pro.author}</td>
+		        <td>${pro.addTimes}</td>
+		        <td>${pro.looknum}</td>
 	        </tr>  
-	    </s:iterator>    
+	    </c:forEach>   
         </tbody>
     </table>
     
        
     <div style="width:800px;margin:0 auto;">
     	<div id="kkpager"></div>
-    </div>    
-    
-    
-    
+    </div>       
     </div>
-    
-    <script type="text/javascript">
-	$('.tablelist tbody tr:odd').addClass('odd');
-	</script>
-
 </body>
 
 </html>

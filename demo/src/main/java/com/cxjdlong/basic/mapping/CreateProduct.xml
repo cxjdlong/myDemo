@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cxjdlong.basic.dao.ProductDao">
+
+	
+	<select id="selectByID" resultType="com.cxjdlong.basic.model.CreateProduct" parameterType="int">
+		select * from createproduct where id=#{id} 
+	</select>
+
+	<delete id="delectByID" parameterType="String">
+		delete from createproduct where id in (${id})
+	</delete>
+
+	<update id="updateByID" parameterType="com.cxjdlong.basic.model.CreateProduct">
+		update createproduct set productName=#{productName} where id=#{id} order by id desc
+	</update>
+	
+	<insert id="add" parameterType="com.cxjdlong.basic.model.Createnews">
+		insert into createproduct
+	</insert>
+	
+	<resultMap type="com.cxjdlong.basic.model.CreateProduct" id="prosMap" autoMapping="true">
+		<id column="id" property="id"/>	
+		<association property="protype" javaType="com.cxjdlong.basic.model.Createprotype">
+			<id column="proClassId" property="id"/>
+			<result column="className" property="className"/>
+		</association>
+	</resultMap>
+	<select id="getFind" resultMap="prosMap" parameterType="Map">
+		SELECT * from createproduct t1 LEFT JOIN createprotype t2 on (t1.proClassId=t2.id) ORDER BY t1.isRecommend desc,t1.proOrderNum DESC limit ${offset},${size}
+	</select>
+	
+	<select id="getFindTotal" resultType="int">
+		select count(id) from createproduct 
+	</select>
+</mapper>

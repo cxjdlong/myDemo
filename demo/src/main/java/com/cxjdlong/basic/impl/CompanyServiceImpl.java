@@ -50,7 +50,7 @@ public class CompanyServiceImpl implements CompanyServiceI {
 		Pager<Createcompanyinfo> pager = new Pager<Createcompanyinfo>();
 		pager.setDates(dates);
 		pager.setPageSize(size);
-		pager.setPageoffSise(offset);
+		pager.setPageoffSize(offset);
 		pager.setTotalRecord(totalRecord);
 		return pager;
 	}

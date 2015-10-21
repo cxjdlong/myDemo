@@ -16,7 +16,7 @@
 $(function(){
 	var totalPage = ${pager.totalPage};
 	var totalRecords =${pager.totalRecord} ;
-	var pageNo = ${pager.totalRecord};
+	var pageNo = ${pager.pageoffSize};
 	if(!pageNo){
 		pageNo = 1;
 	}
@@ -29,7 +29,7 @@ $(function(){
 		//总数据条数
 		totalRecords : totalRecords,
 		//链接前部
-		hrefFormer : 'list',
+		hrefFormer : '/masteLo/news/list',
 		//链接尾部
 		hrefLatter : '.html',
 		getLink : function(n){return this.hrefFormer +"/"+n+ this.hrefLatter;},	
@@ -43,7 +43,7 @@ ${showManage }
 <body>
 
 	<div class="place">
-    <span>位置：[${pager.totalRecord}]</span>
+    <span>位置：</span>
     <ul class="placeul">
     <li><a href="/menu/right.html">首页</a></li>
     <li><a href="#">新闻列表</a></li>
@@ -84,8 +84,8 @@ ${showManage }
 	        <tr>
 		        <td><input name="chekclistid" type="checkbox" value="${ news.id}" /></td>
 		        <td class="imgtd"><img src="${news.newsImg }" onload="javascript:DrawImage(this,'100');" border="0"/></td>
-		        <td>${news.newsTitle}</td>
-		        <td>${news.newstypelist[stuts.index].className}</td>
+		        <td>-${ news.id}-${news.newsTitle}</td>
+		        <td>${news.newstype.className}</td>
 		        <td><c:if test="${news.isrecommend==1 }"> <font color="red">推荐</font></c:if><c:if test="${news.isrecommend <1 }">否</c:if></td>
 		        <td>${news.author}</td>
 		        <td>${news.addtimes}</td>

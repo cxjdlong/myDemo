@@ -36,12 +36,7 @@ public class Pager<E> {
 		return pageoffSize;
 	}
 	public void setPageoffSize(int pageoffSize) {
-		if(pageoffSize<=1){
-			this.pageoffSize=0;
-		}else{
-			this.pageoffSize = (pageoffSize-1)* pageoffSize;
-		}
-		
+			this.pageoffSize = pageoffSize;	
 	}
 	public int getPageSize() {
 		return pageSize;

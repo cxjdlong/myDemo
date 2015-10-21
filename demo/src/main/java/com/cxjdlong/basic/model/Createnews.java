@@ -18,7 +18,7 @@ public class Createnews {
 	private Date addtimes  ;
 	private Date updatetime ;
 	
-	private List<Createnewstype> newstypelist;
+	private Createnewstype newstype;
 	
 	public int getClassID() {
 		return classID;
@@ -94,11 +94,11 @@ public class Createnews {
 	public void setUpdatetime(Date updatetime) {
 		this.updatetime = updatetime;
 	}
-	public List<Createnewstype> getNewstypelist() {
-		return newstypelist;
+	public Createnewstype getNewstype() {
+		return newstype;
 	}
-	public void setNewstypelist(List<Createnewstype> newstypelist) {
-		this.newstypelist = newstypelist;
+	public void setNewstype(Createnewstype newstype) {
+		this.newstype = newstype;
 	}
 
 

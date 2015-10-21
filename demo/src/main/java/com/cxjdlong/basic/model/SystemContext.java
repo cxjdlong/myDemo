@@ -30,7 +30,16 @@ public class SystemContext {
 		return pageOffset;
 	}
 	public static void setPageOffset(int pageOffset) {
+		if(pageOffset<=1){
+			pageOffset = 0;
+		}else{
+			System.out.println("SystemContext.pageSize="+SystemContext.pageSize);
+			System.out.println("pageOffset-1="+(pageOffset-1));
+			pageOffset=(pageOffset-1) * SystemContext.pageSize;
+			System.out.println(pageOffset);
+		}
 		SystemContext.pageOffset = pageOffset;
+		System.out.println("SystemContext.pageOffset2="+SystemContext.pageOffset);
 	}
 	public static String getSort() {
 		return sort;

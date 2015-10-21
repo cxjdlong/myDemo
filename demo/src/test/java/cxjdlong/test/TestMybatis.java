@@ -83,7 +83,7 @@ public class TestMybatis {
 	@Test
 	public void test4(){
 		SystemContext.setPageOffset(34);
-		SystemContext.setPageSize(1);
+		SystemContext.setPageSize(10);
 		Pager<Createnews> mp = newsService.find();
 
 		int mplistSize = mp.getDates().size();

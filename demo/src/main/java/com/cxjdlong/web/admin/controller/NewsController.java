@@ -13,7 +13,7 @@ import com.cxjdlong.basic.service.NewsServiceI;
 
 /**
  * NewsController
- * company news function Controller
+ * news function Controller
  * @author root
  *
  */
@@ -29,26 +29,25 @@ public class NewsController {
 	@RequestMapping("/list")
 	public String list(Model model){
 		
-		SystemContext.setPageOffset(2);
-		SystemContext.setPageSize(5);
+		SystemContext.setPageSize(10);
+		SystemContext.setPageOffset(0);
+		
 		Pager<Createnews> mp = newsService.find();
 		model.addAttribute("pager", mp);
-		System.out.println(mp.getDates().size());
-		
-		System.out.println(mp.getTotalPage()+","+mp.getTotalRecord()+","+mp.getPageoffSize());
 		return "admin/new/list";
 	}
 	
-	@RequestMapping("/{Page}")
+	@RequestMapping("list/{Page}")
 	public String list(@PathVariable("Page") int page,Model model){
 		
+		SystemContext.setPageSize(10);
 		SystemContext.setPageOffset(page);
-		SystemContext.setPageSize(5);
-		Pager<Createnews> mp = newsService.find();
-		model.addAttribute("pager", mp);
-		System.out.println(mp.getDates().size());
 		
-		System.out.println(mp.getTotalPage()+","+mp.getTotalRecord()+","+mp.getPageoffSize());
+		
+		Pager<Createnews> mp = newsService.find();
+		mp.setPageoffSize(page);
+		System.out.println("page="+page);
+		model.addAttribute("pager", mp);
 		return "admin/new/list";
 	}
 

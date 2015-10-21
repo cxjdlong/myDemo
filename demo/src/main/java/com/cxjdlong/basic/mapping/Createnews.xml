@@ -20,14 +20,14 @@
 	</insert>
 	
 	<resultMap type="com.cxjdlong.basic.model.Createnews" id="newsMap" autoMapping="true">
-			<collection property="newstypelist" ofType="com.cxjdlong.basic.model.Createnewstype">
-				<id column="t_id" property="id" />
-				<result column="className" property="className" />
-				<result column="url" property="url" />
-			</collection>
+		<id column="id" property="id"/>	
+		<association property="newstype" javaType="com.cxjdlong.basic.model.Createnewstype">
+			<id column="classID" property="id"/>
+			<result column="className" property="className"/>
+		</association>
 	</resultMap>
 	<select id="getFind" resultMap="newsMap" parameterType="Map">
-		SELECT *,t2.id as 't_id' from createnews t1 LEFT JOIN createnewstype t2 ON t1.classID=t2.id limit ${offset},${size}
+		SELECT *,t1.id as 'n_id' from createnews t1 left JOIN createnewstype t2 ON (t1.classID=t2.id) order by t1.classID desc limit ${offset},${size}
 	</select>
 	
 	<select id="getFindTotal" resultType="int">
