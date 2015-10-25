@@ -1,12 +1,16 @@
 package com.cxjdlong.basic.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cxjdlong.basic.dao.MenutreeDao;
 import com.cxjdlong.basic.model.Menutree;
+import com.cxjdlong.basic.model.Pager;
+import com.cxjdlong.basic.model.SystemContext;
 import com.cxjdlong.basic.service.MenutreeServiceI;
 
 @Service("menutreeService")
@@ -51,7 +55,27 @@ public class MenutreeServiceImpl implements MenutreeServiceI {
 		
 		return menutreeDao.getMenutreeByIdIn(id);
 	}
-	
+//	@Override
+//	public Pager<Menutree> find() {
+		
+//		int size = SystemContext.getPageSize();
+//		int offset = SystemContext.getPageOffset();
+//		System.out.println("size="+size+",offset="+offset);
+//		Map<String,String> map = new HashMap<String,String>(); 		
+//		map.put("offset", offset+"");
+//		map.put("size",size+"");
+//		long totalRecord = menutreeDao.getFindTotal(map);
+//		
+//		List<Menutree> dates = menutreeDao.getFind(map);
+//		Pager<Menutree> pager = new Pager<Menutree>();
+//		pager.setDates(dates);
+//		pager.setPageSize(size);
+//		pager.setPageoffSise(offset);
+//		pager.setTotalRecord(totalRecord);
+//		
+//		return pager;
+//	}
+//	
 
 	
 

@@ -7,59 +7,44 @@ public class SystemContext {
 	/**
 	 * 分页大小
 	 */
-	private static ThreadLocal<Integer> pageSize;
+	private static int pageSize;
 	/**
 	 * 分页的起始页
 	 */
-	private static ThreadLocal<Integer> pageOffset;
+	private static int pageOffset;
 	/**
 	 * 列表的排序字段
 	 */
-	private static ThreadLocal<String> sort;
+	private static String sort;
 	/**
 	 * 列表的排序方式 升序 降序
 	 */
-	private static ThreadLocal<String> order;
-	
-	public static Integer getPageSize() {
-		return pageSize.get();
+	private static String order;
+	public static int getPageSize() {
+		return pageSize;
 	}
-	public static void setPageSize(Integer _pageSize) {
-		pageSize.set(_pageSize);
+	public static void setPageSize(int pageSize) {
+		SystemContext.pageSize = pageSize;
 	}
-	public static Integer getPageOffset() {
-		return pageOffset.get();
+	public static int getPageOffset() {
+		return pageOffset;
 	}
-	public static void setPageOffset(Integer _pageOffset) {
-		pageOffset.set(_pageOffset);
+	public static void setPageOffset(int pageOffset) {
+		SystemContext.pageOffset = pageOffset;
 	}
 	public static String getSort() {
-		return sort.get();
+		return sort;
 	}
-	public static void setSort(String _sort) {
-		sort.set(_sort);
+	public static void setSort(String sort) {
+		SystemContext.sort = sort;
 	}
 	public static String getOrder() {
-		return order.get();
+		return order;
 	}
-	public static void setOrder(String _order) {
-		order.set(_order);
-	}
-	
-	public static void removePageSize(){
-		pageSize.remove();
+	public static void setOrder(String order) {
+		SystemContext.order = order;
 	}
 	
-	public static void removePageOffset(){
-		pageOffset.remove();
-	}
 	
-	public static void removeSort(){
-		sort.remove();
-	}
-	
-	public static void removeOrder(){
-		order.remove();
-	}
 	
 }

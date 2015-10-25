@@ -12,7 +12,7 @@ public class Pager<E> {
 	/**
 	 * 第几页
 	 */
-	private int pageIndex;
+	private int pageoffSise;
 	/**
 	 * 每页显示多少条
 	 */
@@ -20,7 +20,7 @@ public class Pager<E> {
 	/**
 	 * 总共多少条
 	 */
-	private int totalRecord;
+	private long totalRecord;
 	/**
 	 * 总共多少页
 	 */
@@ -31,11 +31,12 @@ public class Pager<E> {
 	
 	private List<E> dates;
 	
-	public int getPageIndex() {
-		return pageIndex;
+	
+	public int getPageoffSise() {
+		return pageoffSise;
 	}
-	public void setPageIndex(int pageIndex) {
-		this.pageIndex = pageIndex;
+	public void setPageoffSise(int pageoffSise) {
+		this.pageoffSise = pageoffSise;
 	}
 	public int getPageSize() {
 		return pageSize;
@@ -43,18 +44,13 @@ public class Pager<E> {
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
 	}
-	public int getTotalRecord() {
+	public long getTotalRecord() {
 		return totalRecord;
 	}
-	public void setTotalRecord(int totalRecord) {
+	public void setTotalRecord(long totalRecord) {
 		this.totalRecord = totalRecord;
 	}
-	public int getTotalPage() {
-		return totalPage;
-	}
-	public void setTotalPage() {
-		this.totalPage = (totalRecord-1)/pageSize+1;
-	}
+	
 	public List<E> getDates() {
 		return dates;
 	}

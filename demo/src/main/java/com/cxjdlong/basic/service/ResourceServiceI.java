@@ -2,6 +2,8 @@ package com.cxjdlong.basic.service;
 
 import java.util.List;
 
+import com.cxjdlong.basic.model.Menutree;
+import com.cxjdlong.basic.model.Pager;
 import com.cxjdlong.basic.model.Resourcefields;
 
 public interface ResourceServiceI {
@@ -15,4 +17,6 @@ public interface ResourceServiceI {
 	public Resourcefields getRestourceByID(String id);
 	
 	public List<Resourcefields> getAllList();
+	
+	public Pager<Resourcefields> find();
 }

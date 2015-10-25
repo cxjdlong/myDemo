@@ -18,4 +18,12 @@
 	<select id="getResourceById" resultType="com.cxjdlong.basic.model.Resourcefields" parameterType="java.lang.String">
 		select * from resourcefields where id = #{id}
 	</select>
+	
+	<select id="getFind" resultType="com.cxjdlong.basic.model.Resourcefields" parameterType="Map">
+		select * from resourcefields limit ${offset},${size}
+	</select>
+	
+	<select id="getFindTotal" resultType="int">
+		select count(id) from resourcefields 
+	</select>
 </mapper>

@@ -10,7 +10,11 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.alibaba.fastjson.JSON;
+import com.cxjdlong.basic.model.Pager;
 import com.cxjdlong.basic.model.Resourcefields;
+import com.cxjdlong.basic.model.SystemContext;
+import com.cxjdlong.basic.model.User;
+import com.cxjdlong.basic.service.MenutreeServiceI;
 import com.cxjdlong.basic.service.ResourceServiceI;
 import com.cxjdlong.basic.service.UserServiceI;
 import com.cxjdlong.basic.util.PubFunction;
@@ -19,11 +23,11 @@ import com.cxjdlong.basic.util.PubFunction;
 @ContextConfiguration(locations = { "classpath:spring.xml", "classpath:spring-mybatis.xml" })
 public class TestMybatis {
 	
-//	@Test
-//	public void test1() {
-//		User u = userService.getUserById("2");
-//		System.out.println(JSON.toJSONStringWithDateFormat(u, "yyyy-mm-yy HH:mm:ss"));
-//	}
+	@Test
+	public void test1() {
+		User u = userService.getUserById("2");
+		System.out.println(JSON.toJSONStringWithDateFormat(u, "yyyy-mm-yy HH:mm:ss"));
+	}
 
 	@Test
 	public void test2(){
@@ -53,6 +57,7 @@ public class TestMybatis {
 			System.out.println(arraylist.get(i));
 		}
 		
+		
 //		System.out.println(JSON.toJSONStringWithDateFormat(rf,"yyyy-mm-yy HH:mm:ss"));
 //		
 //		Resourcefields rf2 = resourceService.getRestourceByID("22");
@@ -61,7 +66,16 @@ public class TestMybatis {
 //		System.out.println(a.size());
 //		System.out.println(JSON.toJSONStringWithDateFormat(a,"yyyy-mm-yy HH:mm:ss"));
 	}
-
+	@Test
+	public void test3(){
+		SystemContext.setPageOffset(2);
+		SystemContext.setPageSize(10);
+		Pager<Resourcefields> mp = resourceService.find();
+		int mplistSize = mp.getDates().size();
+		System.out.println("size = "+mplistSize);
+		System.out.println(JSON.toJSONStringWithDateFormat(mp,"yyyy-mm-yy HH:mm:ss"));
+		
+	}
 	private UserServiceI userService;
 	private ResourceServiceI resourceService;
 	
@@ -82,6 +96,8 @@ public class TestMybatis {
 		this.userService = userService;
 	}
 
+
+	
 
 
 }

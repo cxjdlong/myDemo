@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cxjdlong.basic.model.Menutree;
+import com.cxjdlong.basic.model.Pager;
 import com.cxjdlong.basic.model.Resourcefields;
+import com.cxjdlong.basic.model.SystemContext;
 import com.cxjdlong.basic.service.MenutreeServiceI;
 import com.cxjdlong.basic.service.ResourceServiceI;
 import com.cxjdlong.basic.util.PubFunction;
@@ -53,6 +55,11 @@ public class MenuController {
 		model.addAttribute("rf", rf);
 		model.addAttribute("menulist", menulist);
 		
+		SystemContext.setPageOffset(0);
+		SystemContext.setPageSize(10);
+		Pager<Resourcefields> mp = resourceService.find();
+		int mplistSize = mp.getDates().size();
+		System.out.println("size = "+mplistSize);
 		
 		return "admin/menu/left";
 	}

@@ -18,4 +18,6 @@
 	<select id="getMenutreeByIdIn" resultType="com.cxjdlong.basic.model.Menutree" parameterType="java.lang.String">
 		select * from menutree where id in (${id})
 	</select>
+	
+
 </mapper>

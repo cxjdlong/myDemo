@@ -2,9 +2,9 @@ package com.cxjdlong.basic.dao;
 
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
-
 import com.cxjdlong.basic.model.Resourcefields;
 
 public interface ResourceDao {
@@ -18,4 +18,8 @@ public interface ResourceDao {
 	Resourcefields getResourceById(String id);
 	
 	List<Resourcefields> getAllList();
+	
+//	List<Resourcefields> getFind(@Param(value = "offset") int offset,@Param(value = "size") int size);
+	List<Resourcefields> getFind(Map<String, String> map);
+	int getFindTotal();
 }
