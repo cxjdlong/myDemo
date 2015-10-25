@@ -7,7 +7,6 @@ public class Createnews {
 	private String seoKeyword;				
 	private String seoDescription;				
 	private int classID ;
-	private String className;
 	private String newsImg;
 	private String newsTitle  ;
 	private String newsContent  ;
@@ -16,6 +15,8 @@ public class Createnews {
 	private int isrecommend ;
 	private Date addtimes  ;
 	private Date updatetime ;
+	
+	private Createnewstype newstype;
 	
 	public int getClassID() {
 		return classID;
@@ -91,11 +92,12 @@ public class Createnews {
 	public void setUpdatetime(Date updatetime) {
 		this.updatetime = updatetime;
 	}
-	public String getClassName() {
-		return className;
+
+	public Createnewstype getNewstype() {
+		return newstype;
 	}
-	public void setClassName(String className) {
-		this.className = className;
+	public void setNewstype(Createnewstype newstype) {
+		this.newstype = newstype;
 	}    
 	
 

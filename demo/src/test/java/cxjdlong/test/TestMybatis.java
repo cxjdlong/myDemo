@@ -10,11 +10,12 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.alibaba.fastjson.JSON;
+import com.cxjdlong.basic.model.Createnews;
 import com.cxjdlong.basic.model.Pager;
 import com.cxjdlong.basic.model.Resourcefields;
 import com.cxjdlong.basic.model.SystemContext;
 import com.cxjdlong.basic.model.User;
-import com.cxjdlong.basic.service.MenutreeServiceI;
+import com.cxjdlong.basic.service.NewsServiceI;
 import com.cxjdlong.basic.service.ResourceServiceI;
 import com.cxjdlong.basic.service.UserServiceI;
 import com.cxjdlong.basic.util.PubFunction;
@@ -76,6 +77,18 @@ public class TestMybatis {
 		System.out.println(JSON.toJSONStringWithDateFormat(mp,"yyyy-mm-yy HH:mm:ss"));
 		
 	}
+	
+	@Test
+	public void test4(){
+		SystemContext.setPageOffset(1);
+		SystemContext.setPageSize(1);
+		Pager<Createnews> mp = newsService.find();
+		int mplistSize = mp.getDates().size();
+		System.out.println("size = "+mplistSize);
+		System.out.println(JSON.toJSONStringWithDateFormat(mp,"yyyy-mm-yy HH:mm:ss"));
+	}
+	
+	private NewsServiceI newsService;
 	private UserServiceI userService;
 	private ResourceServiceI resourceService;
 	
@@ -94,6 +107,14 @@ public class TestMybatis {
 	@Autowired
 	public void setUserService(UserServiceI userService) {
 		this.userService = userService;
+	}
+
+	public NewsServiceI getNewsService() {
+		return newsService;
+	}
+	@Autowired
+	public void setNewsService(NewsServiceI newsService) {
+		this.newsService = newsService;
 	}
 
 
