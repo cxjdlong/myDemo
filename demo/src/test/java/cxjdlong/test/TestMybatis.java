@@ -10,11 +10,13 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.alibaba.fastjson.JSON;
+import com.cxjdlong.basic.model.Createcompanyinfo;
 import com.cxjdlong.basic.model.Createnews;
 import com.cxjdlong.basic.model.Pager;
 import com.cxjdlong.basic.model.Resourcefields;
 import com.cxjdlong.basic.model.SystemContext;
 import com.cxjdlong.basic.model.User;
+import com.cxjdlong.basic.service.CompanyServiceI;
 import com.cxjdlong.basic.service.NewsServiceI;
 import com.cxjdlong.basic.service.ResourceServiceI;
 import com.cxjdlong.basic.service.UserServiceI;
@@ -92,10 +94,29 @@ public class TestMybatis {
 		System.out.println(JSON.toJSONStringWithDateFormat(mp.getDates(),"yyyy-mm-yy HH:mm:ss"));
 	}
 	
+	@Test
+	public void test5(){
+		Createcompanyinfo company =new Createcompanyinfo();
+		company = companyService.getcompanyByID(2);
+		System.out.println(JSON.toJSONStringWithDateFormat(company,"yyyy-mm-yy HH:mm:ss"));
+	}
+	
 	private NewsServiceI newsService;
 	private UserServiceI userService;
 	private ResourceServiceI resourceService;
+	private CompanyServiceI companyService;
 	
+	
+	
+	
+	public CompanyServiceI getCompanyService() {
+		return companyService;
+	}
+	@Autowired
+	public void setCompanyService(CompanyServiceI companyService) {
+		this.companyService = companyService;
+	}
+
 	public ResourceServiceI getResourceService() {
 		return resourceService;
 	}

@@ -55,12 +55,7 @@ public class MenuController {
 		model.addAttribute("rf", rf);
 		model.addAttribute("menulist", menulist);
 		
-		SystemContext.setPageOffset(0);
-		SystemContext.setPageSize(10);
-		Pager<Resourcefields> mp = resourceService.find();
-		int mplistSize = mp.getDates().size();
-		System.out.println("size = "+mplistSize);
-		
+
 		return "admin/menu/left";
 	}
 	
