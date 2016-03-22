@@ -1,14 +1,14 @@
-<%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
-
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>欢迎登录后台管理系统</title>
-<link href="/mfolder/css/style.css" rel="stylesheet" type="text/css" />
-<script language="JavaScript" src="/mfolder/js/jquery.js"></script>
-<script src="/mfolder/js/cloud.js" type="text/javascript"></script>
+<link href="/resources/mfolder/css/style.css" rel="stylesheet" type="text/css" />
+<script language="JavaScript" src="/resources/mfolder/js/jquery.js"></script>
+<script src="/resources/mfolder/js/cloud.js" type="text/javascript"></script>
 
 <script language="javascript">
 	$(function(){
@@ -21,7 +21,7 @@
 
 </head>
 
-<body style="background-color:#1c77ac; background-image:url(/mfolder/images/light.png); background-repeat:no-repeat; background-position:center top; overflow:hidden;">
+<body style="background-color:#1c77ac; background-image:url(/resources/mfolder/images/light.png); background-repeat:no-repeat; background-position:center top; overflow:hidden;">
 
 
 
@@ -47,11 +47,11 @@
     <div class="loginbox">
     
     <ul>
-    <form name="loginform" method="post" action="/mastLo/main.html">
-    <li><input name="muser.userid" type="text" class="loginuser" value="cxjdlong" onclick="JavaScript:this.value=''"/></li>
-    <li><input name="muser.userpswd" type="text" class="loginpwd" value="admin" onclick="JavaScript:this.value=''"/></li>
-    <li><input name="" type="submit" class="loginbtn" value="登录"  /><label><input name="" type="checkbox" value="" checked="checked" />记住密码</label><label><a href="#">忘记密码？</a></label><font color="red"><s:property value="showManage" escape="false" /></font></li>
-	</form>
+    <sf:form method="post" action="/admin/checklogin.html" modelAttribute="master">
+    	<li><input name="userid" type="text" class="loginuser" value="cxjdlong" onclick="JavaScript:this.value=''"/></li>
+    	<li><input name="userpswd" type="text" class="loginpwd" value="admin" onclick="JavaScript:this.value=''"/></li>
+    	<li><input name="" type="submit" class="loginbtn" value="登录"  /><label><input name="" type="checkbox" value="" checked="checked" />记住密码</label><label><a href="#">忘记密码？</a></label><font color="red">${showManage }</font></li>
+	</sf:form>
     </ul>
     
     
@@ -61,7 +61,7 @@
     
     
     
-    <div class="loginbm">版权所有  2013  <a href="http://www.zzcodes.net">www.zzcodes.net</a>  仅供学习交流，勿用于任何商业用途</div>
+    <div class="loginbm">版权所有  2015  <a href="#">cxjdlong</a></div>
 	
     
 </body>

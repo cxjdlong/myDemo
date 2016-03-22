@@ -8,7 +8,6 @@
 <title>无标题文档</title>
 <link rel="stylesheet" href="/resources/mfolder/css/style.css" />
 <script language="JavaScript" src="/resources/mfolder/js/jquery.js"></script>
-
 <script type="text/javascript">
 $(function(){	
 	//导航切换
@@ -28,14 +27,11 @@ $(function(){
 	});
 })	
 </script>
-
-
 </head>
 
 <body style="background:#f0f9fd;">
 
-	<div class="lefttop"><span></span>通讯录</div>
-    
+	<div class="lefttop"><span></span>通讯录</div>    
     <dl class="leftmenu">
     <c:forEach items="${rf}" var="rf" varStatus="stuts">
   			
@@ -48,13 +44,11 @@ $(function(){
 			    	<ul class="menuson">
 					   <c:forEach items="${menulist[stuts.index]}" var="menulist" varStatus="stutsb">
 					   	 	
-					   		<li<c:if test="${stutsb.index==0}"> class="active"</c:if>><cite></cite><a href="${menulist.resString }${menulist.parameter}" target="rightFrame">${menulist.fieldName}</a><i></i></li>
+					   		<li<c:if test="${stutsb.index==0}"> class="active"</c:if>><cite></cite><a href="${menulist.resString }${menulist.parameter}?sortID=${menulist.id}" target="rightFrame">${menulist.fieldName}</a><i></i></li>
 					   		
 			         </c:forEach>
 			      </ul>    
 			    </dd>
-			
-			
 	</c:forEach>
  
     </dl>

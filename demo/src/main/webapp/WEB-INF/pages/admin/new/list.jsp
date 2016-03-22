@@ -54,7 +54,7 @@ ${showManage }
     
     <div class="tools">
     
-    	<ul class="toolbar"><!-- 按钮html --> <s:property value="sortbutton" escape="false" /></ul>
+    	<ul class="toolbar"><!-- 按钮html -->${sortButtonString }</ul>
         
         
         <ul class="toolbar1">
@@ -67,7 +67,7 @@ ${showManage }
     <table class="imgtable">
     	<thead>
     	<tr>
-        <th width="10px;"><input name="" type="checkbox" value="" onclick="SelectAll('chekclistid');"/> </th>
+       <th width="10px;"><input name="" type="checkbox" value="" onclick="SelectAll('chekclistid');"/> </th>
 	    <th width="100px;">缩略图</th>
 	    <th>标题</th>
 	    <th>分类</th>
@@ -75,7 +75,6 @@ ${showManage }
 	    <th>发布人</th>
 	    <th>添加时间</th>
 	    <th width="60px;">点击</th>
-
         </tr>
         </thead>
         

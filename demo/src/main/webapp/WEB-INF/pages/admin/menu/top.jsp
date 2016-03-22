@@ -27,7 +27,7 @@ $(function(){
     </div>
         
     <ul class="nav">
-    <li><a href="default.html" target="rightFrame" class="selected"><img src="/resources/mfolder/images/icon01.png" title="工作台" /><h2>工作台</h2></a></li>
+    <li><a href="/cxjdlong/menu/right.html" target="rightFrame" class="selected"><img src="/resources/mfolder/images/icon01.png" title="工作台" /><h2>工作台</h2></a></li>
     <li><a href="imgtable.html" target="rightFrame"><img src="/resources/mfolder/images/icon02.png" title="模型管理" /><h2>模型管理</h2></a></li>
     <li><a href="imglist.html"  target="rightFrame"><img src="/resources/mfolder/images/icon03.png" title="模块设计" /><h2>模块设计</h2></a></li>
     <li><a href="tools.html"  target="rightFrame"><img src="/resources/mfolder/images/icon04.png" title="常用工具" /><h2>常用工具</h2></a></li>
@@ -39,13 +39,12 @@ $(function(){
     <ul>
     <li><span><img src="/resources/mfolder/images/help.png" title="帮助"  class="helpimg"/></span><a href="#">帮助</a></li>
     <li><a href="#">关于</a></li>
-    <li><a href="/menu/loginout.html" target="_parent">退出</a></li>
+    <li><a href="/admin/logout.html" target="_parent">退出</a></li>
     </ul>
      
     <div class="user">
     <span>admin</span>
-    <i>消息</i>
-    <b>5</b>
+    <!-- <i>消息</i><b>5</b> -->
     </div>    
     
     </div>

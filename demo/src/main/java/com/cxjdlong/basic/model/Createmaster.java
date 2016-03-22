@@ -2,8 +2,6 @@ package com.cxjdlong.basic.model;
 
 import java.util.Date;
 
-
-
 public class Createmaster {
 	private int id;
 	private String userid;

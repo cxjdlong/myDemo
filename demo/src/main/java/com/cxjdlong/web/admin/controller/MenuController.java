@@ -13,12 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cxjdlong.basic.model.Menutree;
-import com.cxjdlong.basic.model.Pager;
 import com.cxjdlong.basic.model.Resourcefields;
-import com.cxjdlong.basic.model.SystemContext;
 import com.cxjdlong.basic.service.MenutreeServiceI;
 import com.cxjdlong.basic.service.ResourceServiceI;
 import com.cxjdlong.basic.util.PubFunction;
@@ -61,7 +58,7 @@ public class MenuController {
 	
 	@RequestMapping(value="/right")
 	public String index(){
-		return "index";
+		return "admin/menu/index";
 	}
 	
 	@RequestMapping(value="/top")

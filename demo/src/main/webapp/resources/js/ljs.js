@@ -21,7 +21,7 @@ function edtfun(checkboxName){
 	  alert("请选择 一条数据");
 	  return;
 	}else {
-	  window.location.href = "/mastLo/website_ledt.html?id="+selectValue;
+	  window.location.href = "/masteLo/link/"+selectValue+".html";
 	}
 }
 

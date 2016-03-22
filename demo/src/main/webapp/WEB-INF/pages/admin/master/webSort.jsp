@@ -1,32 +1,16 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-<link href="/mfolder/css/style.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="/mfolder/js/jquery.js"></script>
+<link href="/resources/mfolder/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/resources/mfolder/js/jquery.js"></script>
 
 <script type="text/javascript">
-$(document).ready(function(){
-  $(".click").click(function(){
-  $(".tip").fadeIn(200);
-  });
-  
-  $(".tiptop a").click(function(){
-  $(".tip").fadeOut(200);
-});
 
-  $(".sure").click(function(){
-  $(".tip").fadeOut(100);
-});
-
-  $(".cancel").click(function(){
-  $(".tip").fadeOut(100);
-});
-
-});
 function SelectAll(checkboxName) { 
 	var checkboxs=document.getElementsByName(checkboxName); 
 	for (var i=0;i<checkboxs.length;i++) {  
@@ -35,8 +19,8 @@ function SelectAll(checkboxName) {
 }
 
 </script>
-<s:property value="showManage" escape="false"/>
 
+${showManage }
 </head>
 
 
@@ -45,29 +29,25 @@ function SelectAll(checkboxName) {
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="/menu/right.html">首页</a></li>
+    <li><a href="/cxjdlong/menu/right.html">首页</a></li>
     <li><a href="#">权限管理</a></li>
     </ul>
     </div>
     
     <div class="rightinfo">
-		<form name="datelist" action="/mastLo/master_sortFun.html" method="post">	
+		
+		<sf:form id="myform" method="post" action="/masteLo/master/updateSort.html" modelAttribute="master" onsubmit="return eduMaster();">
 			<table border="1" bgcolor="EDF6FA" align="center" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse">
 				<tr>
 					<td align="center" height="25" bgcolor="EDF6FA">修改管理员权限</td>
 				</tr>
 				<tr>
-					<td bgcolor="#FFFFFF">&nbsp;&nbsp;&nbsp;执行操作的用户： <font color="red"><s:property value="#session['MASTER_TENAME']"/> - <s:property value="#session['MASTER_USERID']"/></font>&nbsp;&nbsp;被编辑的用户 ：
+					<td bgcolor="#FFFFFF">&nbsp;&nbsp;&nbsp;执行操作的用户： <font color="red">${loginUser.tename } - ${loginUser.userid }</font>&nbsp;&nbsp;被编辑的用户 ：
 					
-						<select name="muser.userid" class="select3">
-							<s:if test="null!=sid&&!sid.isEmpty()">
-								<option value="<s:property value="sid" />"><s:property value="sid" /></option>							
-							</s:if>
-							<s:else>	
-								<s:iterator value="page_list" status="stuts">	
-								    <option value="<s:property value="userid" />"><s:property value="tename" />[<s:property value="userid" />]</option>
-								</s:iterator>  
-							</s:else>
+						<select name="userid" class="select3">	
+							<c:forEach items="${pager.dates}" var="master" varStatus="stuts">
+							    <option value="${master.userid }">${master.tename }[${master.userid }]</option>
+							</c:forEach>
 			    		</select>
 		    				
 	  				
@@ -94,27 +74,27 @@ function SelectAll(checkboxName) {
 							</tr>
 		
 		<!-- start -->
-						<s:iterator value="fieldslist" id="a" status="stuts">					
+						<c:forEach items="${rf}" var="rf" varStatus="stuts">					
 							<tr bgcolor="#FAE8C9">
-								<td align="center" height="25"><s:property value="#a.fieldName" /></td>
-								<td align="left">&nbsp;&nbsp;能否管理 ：<input type="checkbox" checked name="fie_<s:property value="#a.id" />" value="1" /></td>
+								<td align="center" height="25">${rf.fieldName }</td>
+								<td align="left">&nbsp;&nbsp;能否管理 ：<input type="checkbox" checked name="fie_${rf.id}" value="1" /></td>
 							</tr>							
 							
-							<s:iterator value="#request.fieldslistb.get(#stuts.index)" status="stutsb" id="b">	
+							<c:forEach items="${menulist[stuts.index]}" var="menulist" varStatus="stutsb">
 								<tr bgcolor="#FFFFFF">
-									<td align="center" style="text-indent:20px"><s:property value="#b.fieldName" />&nbsp;&nbsp;&nbsp;<img src="/mfolder/images/t01.png" style="CURSOR:HAND;" border=0 width="15" height="15" onclick="SelectAll('fie_<s:property value="#b.id" />');"/></td>
+									<td align="center" style="text-indent:20px">${menulist.fieldName }&nbsp;&nbsp;&nbsp;<img src="/resources/mfolder/images/t01.png" style="CURSOR:HAND;" border=0 width="15" height="15" onclick="SelectAll('fie_${menulist.id}');"/></td>
 									<td align="center">
 										<table border="0" cellpadding="0" cellspacing="1" width="100%">
 											<tr>																						
-												<td align="center" style="background-color:#CCFFFF;"><input type="checkbox" checked id="fid_<s:property value="#a.id" />" name="fie_<s:property value="#b.id" />" value="1" /></td>													
-												<td align="center" style="background-color:#CCFFFF;"><input type="checkbox" checked id="fid_<s:property value="#a.id" />" name="fie_<s:property value="#b.id" />" value="2" /></td>													
-												<td align="center" style="background-color:#CCFFFF;"><input type="checkbox" checked id="fid_<s:property value="#a.id" />" name="fie_<s:property value="#b.id" />" value="3" /></td>																									
+												<td align="center" style="background-color:#CCFFFF;"><input type="checkbox" checked id="fid_${rf.id}" name="fie_${menulist.id}" value="1" /></td>													
+												<td align="center" style="background-color:#CCFFFF;"><input type="checkbox" checked id="fid_${rf.id}" name="fie_${menulist.id}" value="2" /></td>													
+												<td align="center" style="background-color:#CCFFFF;"><input type="checkbox" checked id="fid_${rf.id}" name="fie_${menulist.id}" value="3" /></td>																									
 											</tr>
 										</table>
 									</td>
 								</tr>
-							</s:iterator>
-						</s:iterator>
+							</c:forEach>
+						</c:forEach>
 		<!-- end -->
 									
 							<tr bgcolor="#EDF6FA">
@@ -127,11 +107,8 @@ function SelectAll(checkboxName) {
 				</tr>
 			</table>
 			</form>
+			</sf:form>
 	</div>
-    
-    <script type="text/javascript">
-	$('.tablelist tbody tr:odd').addClass('odd');
-	</script>
 
 </body>
 

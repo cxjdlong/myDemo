@@ -1,7 +1,6 @@
 package com.cxjdlong.basic.model;
 
-import java.sql.Date;
-import java.util.List;
+import java.util.Date;;
 
 public class Createnews {
 	

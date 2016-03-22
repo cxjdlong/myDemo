@@ -35,13 +35,13 @@ public class CominfoController {
 	public String update(@Valid Createcompanyinfo company, BindingResult br, Model model, MultipartFile attach,
 			HttpServletRequest req) throws IOException {// 一定要紧跟Validated之后写的验证结果类
 		
-		companyService.updateByID(company);
+		
 		if (br.hasErrors()) {
 			// 如果有错误直接跳转到reg试图;
 			model.addAttribute("showManage", "<script>alert('"+company.getTitle()+" 修改失败!');</script>");
 			return "admin/com/update";
 		}
-
+		companyService.updateByID(company);
 		model.addAttribute("showManage", "<script>alert('"+company.getTitle()+" 修改OK!');</script>");
 		model.addAttribute("company", company);
 		return "admin/com/update";

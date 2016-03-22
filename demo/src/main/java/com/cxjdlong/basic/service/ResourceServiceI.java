@@ -2,7 +2,6 @@ package com.cxjdlong.basic.service;
 
 import java.util.List;
 
-import com.cxjdlong.basic.model.Menutree;
 import com.cxjdlong.basic.model.Pager;
 import com.cxjdlong.basic.model.Resourcefields;
 

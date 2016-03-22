@@ -8,11 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cxjdlong.basic.dao.UserDao;
-import com.cxjdlong.basic.model.CreateProduct;
 import com.cxjdlong.basic.model.CreateUser;
 import com.cxjdlong.basic.model.Pager;
 import com.cxjdlong.basic.model.SystemContext;
-import com.cxjdlong.basic.model.User;
 import com.cxjdlong.basic.service.UserServiceI;
 
 @Service("userService")

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.cxjdlong.basic.model.Createprotype;
 import com.cxjdlong.basic.model.Pager;
 import com.cxjdlong.basic.model.SystemContext;
-import com.cxjdlong.basic.service.ProductServiceI;
 import com.cxjdlong.basic.service.ProtypeServiceI;
 
 /**

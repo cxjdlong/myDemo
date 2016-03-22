@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cxjdlong.basic.dao.CreatenewstypeDao;
-import com.cxjdlong.basic.model.Createnews;
 import com.cxjdlong.basic.model.Createnewstype;
 import com.cxjdlong.basic.model.Pager;
 import com.cxjdlong.basic.model.SystemContext;

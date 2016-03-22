@@ -238,7 +238,7 @@ public class PubFunction {
 	 *  getSortbutton(String fsid,String sortStr) 根据传入的参数 生成指定位数的随机数 fsid 栏目ID ，sortStr 用户权限字符串
 	 * 
 	 * */			
-			public static String getSortbutton(int fsid,String sortStr,String checkboxName){
+			public static String getSortbutton(String fsid,String sortStr,String checkboxName){
 				
 				String str1 = sortStr ;
 				
@@ -253,14 +253,14 @@ public class PubFunction {
 				String sortButton = "";
 					
 				if(strOk.indexOf("1")>-1) {//window.location='" + funUrl[0] + "'
-					sortButton += "<li><a href=\"javascript:addfun();\"><span><img src='/mfolder/images/t01.png' /></span>添加</a></li>";
+					sortButton += "<li><a href=\"javascript:addfun();\"><span><img src='/resources/mfolder/images/t01.png' /></span>添加</a></li>";
 				}
 				if(strOk.indexOf("2")>-1) {
-					sortButton += "<a href=\"javascript:edtfun('"+checkboxName+"');\"><li><span><img src='/mfolder/images/t02.png' /></span>修改</li></a>";
+					sortButton += "<a href=\"javascript:edtfun('"+checkboxName+"');\"><li><span><img src='/resources/mfolder/images/t02.png' /></span>修改</li></a>";
 				}
 				if(strOk.indexOf("3")>-1) {
 					
-					sortButton += "<a href=\"javascript:delfun('"+ fsid +"','"+checkboxName+"');\"><li><span><img src='/mfolder/images/t03.png' /></span>删除</li></a>";
+					sortButton += "<a href=\"javascript:delfun('"+ fsid +"','"+checkboxName+"');\"><li><span><img src='/resources/mfolder/images/t03.png' /></span>删除</li></a>";
 					
 				}
 //				if(strOk.indexOf("4")>-1) {

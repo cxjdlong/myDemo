@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cxjdlong.basic.dao.ResourceDao;
-import com.cxjdlong.basic.model.Menutree;
 import com.cxjdlong.basic.model.Pager;
 import com.cxjdlong.basic.model.Resourcefields;
 import com.cxjdlong.basic.model.SystemContext;

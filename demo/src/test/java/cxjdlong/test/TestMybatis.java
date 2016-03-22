@@ -28,8 +28,8 @@ public class TestMybatis {
 	
 	@Test
 	public void test1() {
-		User u = userService.getUserById("2");
-		System.out.println(JSON.toJSONStringWithDateFormat(u, "yyyy-mm-yy HH:mm:ss"));
+//		User u = userService.getUserById("2");
+//		System.out.println(JSON.toJSONStringWithDateFormat(u, "yyyy-mm-yy HH:mm:ss"));
 	}
 
 	@Test

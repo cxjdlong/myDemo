@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -52,7 +53,7 @@ ${showManage }
     
     <div class="tools">
     
-    	<ul class="toolbar"><!-- 按钮html --> <s:property value="sortbutton" escape="false" /></ul>
+    	<ul class="toolbar"><!-- 按钮html -->${sortButtonString }</ul>
         
         
         <ul class="toolbar1">
@@ -89,9 +90,9 @@ ${showManage }
 		        <td>${user.userTel} / ${user.userqq }</td>
 		        <td><c:if test="${user.isRecommend == 1 }"><font color="red">推荐</font></c:if><c:if test="${user.isRecommend == 0 }">否</c:if>/
 		        									<c:if test="${user.userState == 1 }"><font color="red">授权</font></c:if><c:if test="${user.userState == 0 }">停业</c:if></td>		        
-		        <td>${user.userstartime}</td>
-		        <td>${user.openTimes}</td>
-		        <td>${user.guanliEndtime}</td>
+		        <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${user.userstartime}" /></td>
+		        <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${user.openTimes}" /></td>
+		        <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${user.guanliEndtime}" /></td>
 		        <td>${user.looknum}</td>
 	        </tr>  
 	    </c:forEach>   

@@ -25,7 +25,7 @@ ${showManage }
     
     <div class="tools">
     
-    	<ul class="toolbar"><!-- 按钮html --> <s:property value="sortbutton" escape="false" /></ul>
+    	<ul class="toolbar"><!-- 按钮html -->${sortButtonString }</ul>
         
         
         <ul class="toolbar1">
