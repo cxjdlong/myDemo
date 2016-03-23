@@ -96,5 +96,14 @@ public class MasterServiceImpl implements MasterServiceI {
 		masterDao.updateSortByID(master);
 		
 	}
+	@Override
+	public boolean checkMasterUserID(String userid) {
+		Createmaster muser = masterDao.selectByUserID(userid);
+		if(muser==null){
+			return false;
+		}else{
+			return true;
+		}
+	}
 
 }

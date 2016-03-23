@@ -3,6 +3,8 @@ package com.cxjdlong.basic.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class CreateAdpic {
 
 	private int id;
@@ -15,7 +17,11 @@ public class CreateAdpic {
 	private int picState;
 	private String picContent;
 	private String author;
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date picstartime;
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date picendtime;
 	private int picOrder;
 	private String picImg;

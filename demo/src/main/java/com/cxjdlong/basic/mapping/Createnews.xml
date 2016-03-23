@@ -3,10 +3,6 @@
 <mapper namespace="com.cxjdlong.basic.dao.CreatenewsDao">
 
 	
-	<select id="selectByID" resultType="com.cxjdlong.basic.model.Createnews" parameterType="int">
-		select * from createnews where id=#{id} order by fieldsOrder asc
-	</select>
-
 	<delete id="delectByID" parameterType="java.lang.String">
 		delete from createnews where id in (${id}) order by id desc
 	</delete>
@@ -28,6 +24,10 @@
 	</resultMap>
 	<select id="getFind" resultMap="newsMap" parameterType="Map">
 		SELECT *,t1.id as 'n_id' from createnews t1 left JOIN createnewstype t2 ON (t1.classID=t2.id) order by t1.classID desc limit ${offset},${size}
+	</select>
+	
+	<select id="selectByID" resultMap="newsMap" parameterType="int">
+		SELECT *,t1.id as 'n_id' from createnews t1 left JOIN createnewstype t2 ON (t1.classID=t2.id) where t1.id=#{id} 
 	</select>
 	
 	<select id="getFindTotal" resultType="int">

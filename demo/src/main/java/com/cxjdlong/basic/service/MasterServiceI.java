@@ -20,6 +20,8 @@ public interface MasterServiceI {
 	public Pager<Createmaster> find();
 	
 	public Createmaster selectLogin(Createmaster master);
+	
+	public boolean checkMasterUserID(String userid);
 
 	
 }

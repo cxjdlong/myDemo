@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author root
  *
  */
-import org.springframework.web.multipart.MultipartFile;
 
 import com.cxjdlong.basic.model.WebsiteConf;
 import com.cxjdlong.basic.service.WebsetServiceI;

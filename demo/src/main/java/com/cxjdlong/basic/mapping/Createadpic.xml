@@ -12,11 +12,12 @@
 	</delete>
 
 	<update id="updateByID" parameterType="com.cxjdlong.basic.model.CreateAdpic">
-		update createadpic set className=#{className} where id=#{id}
+		update createadpic set seoKeyword=#{seoKeyword},seoDescription=#{seoDescription},classkey=#{classkey},picname=#{picname},picurl=#{picurl},isRecommend=#{isRecommend},picState=#{picState},picContent=#{picContent},author=#{author},picstartime=#{picstartime},picendtime=#{picendtime},picOrder=#{picOrder},picImg=#{picImg}
+		where id=#{id}
 	</update>
 	
 	<insert id="add" parameterType="com.cxjdlong.basic.model.CreateAdpic">
-		insert into createadpic
+		insert into createadpic (seoKeyword,seoDescription,classkey,picname,picurl,isRecommend,picState,picContent,author,picstartime,picendtime,picOrder,picImg)  values (#{seoKeyword},#{seoDescription},#{classkey},#{picname},#{picurl},#{isRecommend},#{picState},#{picContent},#{author},#{picstartime},#{picendtime},#{picOrder},#{picImg})
 	</insert>
 	
 	<select id="getFindTotal" resultType="int">

@@ -9,8 +9,36 @@
 
 <link rel="stylesheet" type="text/css" href="/resources/js/kkpager_blue.css" />
 <script type="text/javascript" src="/resources/js/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="/resources/js/ljs.js"></script>
+<script type="text/javascript" src="/resources/js/kkpager.min.js"></script>
 
+<script type="text/javascript" src="/resources/js/ljs.js"></script>
+<script type="text/javascript">
+//init
+$(function(){
+	var totalPage = ${pager.totalPage};
+	var totalRecords =${pager.totalRecord} ;
+	var pageNo = ${pager.pageoffSize};
+	if(!pageNo){
+		pageNo = 1;
+	}
+	//生成分页
+	//有些参数是可选的，比如lang，若不传有默认值
+	kkpager.generPageHtml({
+		pno : pageNo,
+		//总页码
+		total : totalPage,
+		//总数据条数
+		totalRecords : totalRecords,
+		//链接前部
+		hrefFormer : '/masteLo/link/list',
+		//链接尾部
+		hrefLatter : '.html',
+		getLink : function(n){return this.hrefFormer +"/"+n+ this.hrefLatter;},
+		
+		
+	});
+});
+</script>
 ${showManage }
 </head>
 
@@ -20,7 +48,7 @@ ${showManage }
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="/menu/right.html">首页</a></li>
+    <li><a href="/cxjdlong/menu/right.html">首页</a></li>
     <li><a href="#">友情链接</a></li>
     </ul>
     </div>
@@ -67,10 +95,7 @@ ${showManage }
     </div>
     
     </div>
-    
-    <script type="text/javascript">
-	$('.tablelist tbody tr:odd').addClass('odd');
-	</script>
+  
 
 </body>
 

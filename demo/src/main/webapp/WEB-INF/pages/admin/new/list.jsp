@@ -17,6 +17,7 @@ $(function(){
 	var totalPage = ${pager.totalPage};
 	var totalRecords =${pager.totalRecord} ;
 	var pageNo = ${pager.pageoffSize};
+	var sortID = ${sortID};
 	if(!pageNo){
 		pageNo = 1;
 	}
@@ -32,7 +33,7 @@ $(function(){
 		hrefFormer : '/masteLo/news/list',
 		//链接尾部
 		hrefLatter : '.html',
-		getLink : function(n){return this.hrefFormer +"/"+n+ this.hrefLatter;},	
+		getLink : function(n){return this.hrefFormer +"/"+n+ this.hrefLatter+"?sortID="+sortID;},	
 	});
 });
 </script>

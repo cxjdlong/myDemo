@@ -32,9 +32,13 @@
 	</update>
 	
 	<insert id="add" parameterType="com.cxjdlong.basic.model.Createmaster">
-		insert into createmaster
+		insert into createmaster (userid,userpswd,tename,tecaption,temail,tel,isclose,userAuthority,addusertime) values (#{userid},#{userpswd},#{tename},#{tecaption},#{temail},#{tel},0,#{userAuthority},now())
 	</insert>
 	
+	<select id="selectByUserID" resultType="com.cxjdlong.basic.model.Createmaster" parameterType="String">
+		select id from createmaster where userid=#{userid}
+	</select>
+	 
 	<select id="getFindTotal" resultType="int">
 		select count(id) from createmaster 
 	</select>

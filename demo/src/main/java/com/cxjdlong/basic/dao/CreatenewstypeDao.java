@@ -10,11 +10,11 @@ import com.cxjdlong.basic.model.Createnewstype;
 
 public interface CreatenewstypeDao {
 	
-	Createnewstype add(Createnewstype newstype);
+	void add(Createnewstype newstype);
 	
 	Createnewstype selectByID(@Param(value = "id") int id);
 	
-	Createnewstype updateByID(Createnewstype newstype);
+	void updateByID(Createnewstype newstype);
 	
 	void delectByID (@Param(value = "id") String id);
 	

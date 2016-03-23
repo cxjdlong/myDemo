@@ -55,7 +55,7 @@ public class TestController {
 	public String test1(String username) {
 		System.out.println("String username .do?username=" + username
 				+ " 如果username不写为空 \n 使用 @RequestParam(\"username\") 参数不可以少");
-		String a = "<font color='red'>Hello World</font>";
+//		String a = "<font color='red'>Hello World</font>";
 
 		return "hello";
 	}

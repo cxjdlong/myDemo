@@ -12,6 +12,8 @@ public interface MasterDao {
 
 	Createmaster selectByID(@Param(value = "id") int id);
 	
+	Createmaster selectByUserID(@Param(value = "userid") String userid);
+	
 	void delectByID (@Param(value = "id") String id);
 	
 	void updateByID(Createmaster master);
@@ -27,5 +29,6 @@ public interface MasterDao {
 	int getFindTotal();
 	
 	Createmaster selectLogin(Map<String, String> map);
+	
 
 }

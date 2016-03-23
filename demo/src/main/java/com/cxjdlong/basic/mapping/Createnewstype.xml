@@ -11,11 +11,12 @@
 	</delete>
 
 	<update id="updateByID" parameterType="com.cxjdlong.basic.model.Createnewstype">
-		update createnewstype set className=#{className} where id=#{id}
+		update createnewstype set className=#{className},url=#{url}
+		where id=#{id}
 	</update>
 	
 	<insert id="add" parameterType="com.cxjdlong.basic.model.Createnewstype">
-		insert into createnewstype
+		insert into createnewstype (className,url)  values (#{className},#{url})
 	</insert>
 	
 	<select id="getFindTotal" resultType="int">

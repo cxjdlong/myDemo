@@ -16,7 +16,7 @@
 	</update>
 	
 	<insert id="add" parameterType="com.cxjdlong.basic.model.CreateLink">
-		insert into createlink
+		insert into createlink (urlName,urlLink,urlOrder)  values (#{urlName},#{urlLink},#{urlOrder})
 	</insert>
 	
 	<select id="getFindTotal" resultType="int">

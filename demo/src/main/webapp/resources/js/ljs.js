@@ -26,7 +26,7 @@ function edtfun(checkboxName){
 }
 
 function addfun(){
-	 window.location.href = "/mastLo/website_ladd.html";
+	 window.location.href = "/masteLo/link/toAdd.html";
 }
 
 //************************   删除信息   *********************************//
@@ -45,6 +45,6 @@ function delfun(id,checkboxName){
 	}else if(window.confirm('删除后不能恢复 您确定执行删除操作么？')){
 		delKey = chestr.substring(0, chestr.length-1) ;
 //	  alert("您先择的是："+ delKey +"");
-	  window.location.href = "/mastLo/website_ldel.html?id="+id+"&sid="+delKey;
+	  window.location.href = "/masteLo/link/del.html?id="+delKey+"&sortID="+id;
 	}
 }
