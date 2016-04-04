@@ -17,12 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.cxjdlong.basic.model.CreateAdpic;
+import com.alibaba.fastjson.JSON;
 import com.cxjdlong.basic.model.Createmaster;
 import com.cxjdlong.basic.model.Pager;
 import com.cxjdlong.basic.model.Resourcefields;
 import com.cxjdlong.basic.model.SystemContext;
-import com.cxjdlong.basic.model.User;
 import com.cxjdlong.basic.service.MasterServiceI;
 import com.cxjdlong.basic.service.ResourceServiceI;
 import com.cxjdlong.basic.util.PubFunction;
@@ -237,12 +236,13 @@ public class MasterController {
 	 * @param username aa bb cc
 	 * @return
 	 */
+	@RequestMapping( value="/chekcUserid",method=RequestMethod.POST)
 	@ResponseBody
-	@RequestMapping(value="/chekcUserid",method=RequestMethod.POST ,produces = "application/html")
-	public boolean checkUserid(HttpServletRequest request){
-		String userid= "23232322g3";//request.getParameter("userid");
-//		System.out.println("userid="+request.getParameter("userid"));
-		return masterService.checkMasterUserID(userid);
+	public String checkUserid(HttpServletRequest request){
+		String userid= request.getParameter("userid");
+		System.out.println("userid="+request.getParameter("userid"));
+		System.out.println(JSON.toJSONString(masterService.checkMasterUserID(userid)));
+		return JSON.toJSONString(masterService.checkMasterUserID(userid));
 	}
 	
 	private MasterServiceI masterService;

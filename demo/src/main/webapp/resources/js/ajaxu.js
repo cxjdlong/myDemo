@@ -8,9 +8,8 @@
 		 $("cuserid").innerHTML='<font color=red>用户ID  输入不符合规范,必须在 5到16个字符之间</font>'; 
 		 return false;
 	}else{
-		 alert("----"+us);
     //请求的地址
-    var url = '/masteLo/master/chekcUserid.html?jj';
+    var url = '/masteLo/master/chekcUserid.html';
     //将表单域的值转换为请求参数
     var params = Form.Element.serialize('userid');
     //创建Ajax.Request对象，对应于发送请求
@@ -23,8 +22,14 @@
     parameters:params,
     //指定回调函数
     onComplete:function(json){  
-        var JSONobj=json.responseText;             
-        $("cuserid").innerHTML=JSONobj;  
+        var JSONobj=json.responseText; 
+        if (JSONobj=='true'){
+        	$("cuserid").innerHTML='&nbsp;&nbsp;<img src="/resources/mfolder/images/reg4.gif" />';  
+        }else{
+        	$("userid").value='';
+        	$("cuserid").innerHTML='<font color=red>'+us+' 用户ID已经存在</font>';
+        }
+        
     }  
 
     });

@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cxjdlong.basic.model.Createnews;
+import com.cxjdlong.basic.model.Createnewstype;
 import com.cxjdlong.basic.model.Pager;
 import com.cxjdlong.basic.model.SystemContext;
 import com.cxjdlong.basic.service.NewsServiceI;
+import com.cxjdlong.basic.service.NewsTypeServiceI;
 
 /**
  * NewsController
@@ -68,6 +70,11 @@ public class NewsController {
 		Createnews news = new Createnews();
 		news = newsService.selectByID(id);
 
+		SystemContext.setPageSize(10);
+		SystemContext.setPageOffset(0);		
+		Pager<Createnewstype> mp = newstypeService.find();
+		model.addAttribute("pager", mp);
+		
 		model.addAttribute("news", news);
 		return "admin/new/update";
 	}
@@ -87,6 +94,7 @@ public class NewsController {
 			model.addAttribute("news", news);
 			return "admin/new/update";
 		}
+				
 		newsService.updateByID(news);
 		model.addAttribute("showManage", "<script>alert('信息 修改OK!');</script>");
 		model.addAttribute("news", news);
@@ -99,7 +107,13 @@ public class NewsController {
 	 * @return
 	 */
 	@RequestMapping("/toAdd")
-	public String toAdd(){
+	public String toAdd(Model model){
+		
+		SystemContext.setPageSize(10);
+		SystemContext.setPageOffset(0);
+		
+		Pager<Createnewstype> mp = newstypeService.find();
+		model.addAttribute("pager", mp);
 		
 		return "admin/new/add";
 	}
@@ -129,13 +143,22 @@ public class NewsController {
 	@RequestMapping("/del")
 	public String del(Model model , HttpServletRequest request){
 		String id = request.getParameter("id");
-		System.out.println("idString = "+id);
 		newsService.delectByID(id);
 		model.addAttribute("showManage", "<script>alert('信息 删除成功!');</script>");
 		return this.list(model,request);
 	}
 	
 	private NewsServiceI newsService;
+	private NewsTypeServiceI newstypeService;
+
+	public NewsTypeServiceI getNewstypeService() {
+		return newstypeService;
+	}
+	@Autowired
+	public void setNewstypeService(NewsTypeServiceI newstypeService) {
+		this.newstypeService = newstypeService;
+	}
+	
 	public NewsServiceI getNewsService() {
 		return newsService;
 	}

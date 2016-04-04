@@ -69,4 +69,13 @@ public class UserServiceImpl implements UserServiceI {
 		return pager;
 	}
 
+	@Override
+	public Pager<CreateUser> selectFun(CreateUser user) {
+		
+		List<CreateUser> dates = userDao.selectFun(user.getUserZname());
+		Pager<CreateUser> pager = new Pager<CreateUser>();
+		pager.setDates(dates);
+		return pager;
+	}
+
 }

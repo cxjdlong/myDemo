@@ -174,7 +174,7 @@ ${showManage }
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
-   <sf:form id="myform" method="post" action="/masteLo/adpic/add.html" modelAttribute="adpic" onsubmit="return addmessFun();">
+   <sf:form id="myform" method="post" action="/masteLo/adpic/add.html" modelAttribute="adpic" onsubmit="return addmessFun();" enctype="multipart/form-data">
     <ul class="forminfo">
 	    <li><label>关键字</label><input type="hidden" name="id" value='${adpic.id }'/><textarea id="seoKeyword" onblur="caddmessFun('seoKeyword');" name="seoKeyword" cols="" rows="" class="textinput">${adpic.seoKeyword }</textarea><i id="cseoKeyword">* 关键字 必须在 5到500个字符之间</i></li>
 	    <li><label>描述</label><textarea id="seoDescription" onblur="caddmessFun('seoDescription');" name="seoDescription" cols="" rows="" class="textinput">${adpic.seoDescription }</textarea><i id="cseoDescription">描述必须在5到500个字符之间</i></li>	   

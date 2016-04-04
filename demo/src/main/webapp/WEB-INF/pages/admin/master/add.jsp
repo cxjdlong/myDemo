@@ -91,7 +91,7 @@ ${showManage }
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
-   <sf:form id="myform" method="post" action="/masteLo/master/add.html" modelAttribute="master" onsubmit="return addMaster();">
+   <sf:form id="myform" method="post" action="/masteLo/master/add.html" modelAttribute="master" onsubmit="return addMaster();" enctype="multipart/form-data">
     <ul class="forminfo">
 	    <li><label>登陆ID</label><input id="userid" onblur="chkUser();" name="userid" type="text" class="dfinput" value="" /><i id="cuserid">* 请输入5到10个字符之间 </i></li>
 	    <li><label>登陆密码</label><input id="userpswd" onblur="caddMaster('userpswd');" name="userpswd" type="text" class="dfinput" value="" /><i id="cuserpswd"><font color=red>密码禁止 请输入 【default】</font>* 请输入密码 5到16个字符之间< </i></li>

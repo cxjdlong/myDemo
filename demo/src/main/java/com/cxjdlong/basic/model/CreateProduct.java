@@ -4,20 +4,20 @@ import java.util.Date;
 
 public class CreateProduct {
 
-	private int id;		//	id主键		bigint(20) NOT NULL
-	private String seoKeyword;				//	seo关键字	varchar(400) NOT NULL
-	private String seoDescription;			//	seo描述		varchar(400) NULL
-	private String productName;				//	产品名字	varchar(200) NULL
-	private String proCaption;			//	产品描述/小标题	varchar(800) NULL
+	private int id;	
+	private String seoKeyword;				
+	private String seoDescription;			
+	private String productName;				
+	private String proCaption;			
 	private int proClassId;
-	private String proClassName;				//	产品分类	varchar(50) NOT NULL
-	private int isRecommend;				//	是否推荐	int(4) NOT NULL
-	private String proImg;					//	产品图片	varchar(400) NULL
-	private String proContent;				//	产品内容	text NULL
-	private String author;					//	添加者		varchar(50) NULL
-	private Date addTimes;				//	添加时间	datetime NULL
-	private Date updateTimes;				//	修改时间	datetime NULL
-	private int looknum;				//	点击次数	bigint(20) NULL
+	private String proClassName;				
+	private int isRecommend;				
+	private String proImg;					
+	private String proContent;				
+	private String author;					
+	private Date addTimes;				
+	private Date updateTimes;				
+	private int looknum;				
 	private long proOrderNum;
 	private Createprotype protype;
 	

@@ -2,6 +2,8 @@ package com.cxjdlong.basic.model;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class CreateUser {
 	private int id;
 	private String seoKeyword;
@@ -22,14 +24,19 @@ public class CreateUser {
 	private int uJoinNum;
 	private int userMianJi;
 	private String userNote;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date userstartime;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date userEndtime;
 	private String usergliNum;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date guanliEndtime;
 	private int looknum;
-	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date addTimes;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date updateTimes;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date openTimes;
 	
 	private String userContent;

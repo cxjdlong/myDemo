@@ -20,5 +20,7 @@ public interface UserDao {
 	List<CreateUser> getFind(Map<String, String> map);
 	
 	int getFindTotal();
+	
+	List<CreateUser> selectFun(@Param(value="selKey") String  selKey);
 
 }

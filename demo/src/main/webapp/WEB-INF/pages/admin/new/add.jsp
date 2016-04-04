@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -125,17 +126,17 @@ ${showManage }
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
-   <sf:form id="myform" method="post" action="/masteLo/news/add.html" modelAttribute="news" onsubmit="return addmessFun();">
+   <sf:form id="myform" method="post" action="/masteLo/news/add.html" modelAttribute="news" onsubmit="return addmessFun();" enctype="multipart/form-data">
     <ul class="forminfo">
 	    <li><label>关键字</label><textarea id="seoKeyword" onblur="caddmessFun('seoKeyword');" name="seoKeyword" cols="" rows="" class="textinput"></textarea><i id="cseoKeyword">* 关键字 必须在 5到500个字符之间</i></li>
 	    <li><label>描述</label><textarea id="seoDescription" onblur="caddmessFun('seoDescription');" name="seoDescription" cols="" rows="" class="textinput"></textarea><i id="cseoDescription">描述必须在5到500个字符之间</i></li>	   
 	    <li><label>标题</label><input id="newsTitle" onblur="caddmessFun('newsTitle');" name="newsTitle" type="text" class="dfinput" value="" /><i id="cnewsTitle">* 信息标题 ，必须在5到60个字符之间</i></li>
 		
 	    <li><label>信息分类</label>
-	    <select name="className">
-	     <s:iterator value="class_list" id="b" status="stuts">     
-			  <option  <s:if test="#b.id==cnews.classID">selected</s:if> value='<s:property value="#b.id" />-<s:property value="#b.className" />'>&nbsp;&nbsp;<s:property value="#b.className" />&nbsp;&nbsp;</option>			
-	    </s:iterator>
+	    <select name="classID">
+			<c:forEach items="${pager.dates}" var="newstype" varStatus="stuts">   
+	        <option value='${newstype.id }'>&nbsp;&nbsp;${ newstype.className}&nbsp;&nbsp;</option>
+	    	</c:forEach>   
 		</select>
 		</li>
 	    <li><label>新闻图片</label><input id="newsImg" onblur="caddmessFun('newsImg');" readonly name="newsImg" type="text" class="dfinput" value="1111111" /><input type="button" value=" 图片添加 " name="fckpic1" class="btnpic" onclick="openUpladage('newsImg','pic','n');" /><i id="cnewsImg">* 请上传新闻图片</i></li>

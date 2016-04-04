@@ -71,7 +71,7 @@ ${showManage }
     
     <div class="formtitle"><span>基本信息</span></div>
   
-   <sf:form id="myform" method="post" action="/masteLo/link/update.html" modelAttribute="link" onsubmit="return addmessFun();">
+   <sf:form id="myform" method="post" action="/masteLo/link/update.html" modelAttribute="link" onsubmit="return addmessFun();" enctype="multipart/form-data">
     <ul class="forminfo">
 	    <li><label>列表名字</label><input type="hidden" name="id" value="${link.id}" /><input id="urlName" onblur="caddmessFun('urlName');" name="urlName" type="text" class="dfinput" value="${link.urlName }" /><i id="curlName">* 信息分类 名字</i></li>
 	    <li><label>对于URL</label><input id="urlLink" onblur="caddmessFun('urlLink');" name="urlLink" type="text" class="dfinput" value="${link.urlLink }" /><i id="curlLink">* http://开头</i></li>

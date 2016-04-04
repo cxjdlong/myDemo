@@ -8,11 +8,13 @@
 	</delete>
 
 	<update id="updateByID" parameterType="com.cxjdlong.basic.model.Createnews">
-		update createnews set newsTitle=#{newsTitle} where id=#{id} order by id desc
+			update createnews set seoKeyword=#{seoKeyword},seoDescription=#{seoDescription},classID=#{classID},newsTitle=#{newsTitle},newsImg=#{newsImg},newsContent=#{newsContent},author=#{author},looknum=#{looknum},isrecommend=#{isrecommend},updatetime=now()
+	 	where id=#{id}
 	</update>
 	
 	<insert id="add" parameterType="com.cxjdlong.basic.model.Createnews">
-		insert into createnews
+		insert into createnews (seoKeyword,seoDescription,classID,newsTitle,newsImg,newsContent,author,looknum,isrecommend,addtimes) 
+   	values (#{seoKeyword},#{seoDescription},#{classID},#{newsTitle},#{newsImg},#{newsContent},#{author},#{looknum},#{isrecommend},now())
 	</insert>
 	
 	<resultMap type="com.cxjdlong.basic.model.Createnews" id="newsMap" autoMapping="true">

@@ -6,11 +6,35 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
 <link href="/resources/mfolder/css/style.css" rel="stylesheet" type="text/css" />
-
 <link rel="stylesheet" type="text/css" href="/resources/js/kkpager_blue.css" />
 <script type="text/javascript" src="/resources/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="/resources/js/kkpager.min.js"></script>
 <script type="text/javascript" src="/resources/js/ptjs.js"></script>
-
+<script type="text/javascript">
+$(function(){
+	var totalPage = ${pager.totalPage};
+	var totalRecords =${pager.totalRecord} ;
+	var pageNo = ${pager.pageoffSize};
+	var sortID = ${sortID};
+	if(!pageNo){
+		pageNo = 1;
+	}
+	//生成分页
+	//有些参数是可选的，比如lang，若不传有默认值
+	kkpager.generPageHtml({
+		pno : pageNo,
+		//总页码
+		total : totalPage,
+		//总数据条数
+		totalRecords : totalRecords,
+		//链接前部
+		hrefFormer : '/masteLo/protype/list',
+		//链接尾部
+		hrefLatter : '.html',
+		getLink : function(n){return this.hrefFormer +"/"+n+ this.hrefLatter+"?sortID="+sortID;},	
+	});
+});
+</script>
 ${showManage }
 </head>
 
@@ -58,6 +82,9 @@ ${showManage }
 	    </c:forEach>
         </tbody>
     </table>
+    <div style="width:800px;margin:0 auto;">
+    	<div id="kkpager"></div>
+    </div>  
     </div>
 </body>
 

@@ -58,7 +58,7 @@ ${showManage }
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
-    <sf:form id="myform" method="post" action="/masteLo/newstype/update.html" modelAttribute="newtype" onsubmit="return addMaster();">
+    <sf:form id="myform" method="post" action="/masteLo/newstype/update.html" modelAttribute="newtype" onsubmit="return addMaster();" enctype="multipart/form-data">
     <ul class="forminfo">
 	    <li><label>列表名字</label><input type="hidden" name="id" value="${newtype.id }" /><input id="className" onblur="caddmessFun('className');" name="className" type="text" class="dfinput" value="${newtype.className }" /><i id="cclassName">* 信息分类 名字</i></li>
 	    <li><label>对于URL</label><input id="url" onblur="caddmessFun('url');" name="url" type="text" class="dfinput" value="${newtype.url }" /><i id="curl">* 对于URL:首页使用居多</i></li>	  

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -131,18 +132,18 @@ ${showManage }
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
-   <sf:form id="myform" method="post" action="/masteLo/news/update.html" modelAttribute="news" onsubmit="return addmessFun();">
+   <sf:form id="myform" method="post" action="/masteLo/news/update.html" modelAttribute="news" onsubmit="return addmessFun();" enctype="multipart/form-data">
     <ul class="forminfo">
-	    <li><label>关键字</label><input type="hidden" name="id" value='${news.id }'/><textarea id="seoKeyword" onblur="caddmessFun('seoKeyword');" name="seoKeyword" cols="" rows="" class="textinput">${newss.seoKeyword }</textarea><i id="cseoKeyword">* 关键字 必须在 5到500个字符之间</i></li>
+	    <li><label>关键字</label><input type="hidden" name="id" value='${news.id }'/><textarea id="seoKeyword" onblur="caddmessFun('seoKeyword');" name="seoKeyword" cols="" rows="" class="textinput">${news.seoKeyword }</textarea><i id="cseoKeyword">* 关键字 必须在 5到500个字符之间</i></li>
 	    <li><label>描述</label><textarea id="seoDescription" onblur="caddmessFun('seoDescription');" name="seoDescription" cols="" rows="" class="textinput">${news.seoDescription }</textarea><i id="cseoDescription">描述必须在5到500个字符之间</i></li>	   
 	    <li><label>标题</label><input id="newsTitle" onblur="caddmessFun('newsTitle');" name="newsTitle" type="text" class="dfinput" value="${news.newsTitle }" /><i id="cnewsTitle">* 信息标题 ，必须在5到60个字符之间</i></li>
 		
 		
 	    <li><label>信息分类</label>
-	    <select name="className">
-	     <s:iterator value="class_list" id="b" status="stuts">     
-			  <option  <s:if test="#b.id==cnews.classID">selected</s:if> value='<s:property value="#b.id" />-<s:property value="#b.className" />'>&nbsp;&nbsp;<s:property value="#b.className" />&nbsp;&nbsp;</option>			
-	    </s:iterator>
+	    <select name="classID">
+			<c:forEach items="${pager.dates}" var="newstype" varStatus="stuts">   
+	        <option <c:if test="${newstype.id == news.classID }">selected</c:if> value='${newstype.id }'>${newstype.id}-${news.classID }&nbsp;&nbsp;${newstype.id == news.classID } - ${ newstype.className}&nbsp;&nbsp;</option>
+	    	</c:forEach>   
 		</select>
 		</li>
 	    <li><label>新闻图片</label><input id="newsImg" onblur="caddmessFun('newsImg');" readonly name="newsImg" type="text" class="dfinput" value="${news.newsImg }" /><input type="button" value=" 图片添加 " name="fckpic1" class="btnpic" onclick="openUpladage('newsImg','pic','n');" /><i id="cnewsImg">* 请上传新闻图片</i></li>
@@ -150,8 +151,8 @@ ${showManage }
 	    <li><label>点击次数</label><input id="looknum" onblur="caddmessFun('looknum');" name="looknum" type="text" class="dfinput" value="${news.looknum }" /><i id="clooknum">* 请输入点击次数 默认1</i></li>
 	    <li><label>是否推荐</label>
 	    <select name="isrecommend">
-	    	<option <s:if test="1==cnews.isrecommend">selected</s:if> value='1'>&nbsp;&nbsp;推荐&nbsp;&nbsp;</option>
-	    	<option <s:if test="0==cnews.isrecommend">selected</s:if> value='0'>&nbsp;&nbsp;否&nbsp;</option>
+	    	<option <c:if test="${news.isrecommend ==1 }">selected</c:if> value='1'>&nbsp;&nbsp;推荐&nbsp;&nbsp;</option>
+	    	<option <c:if test="${news.isrecommend ==0 }">selected</c:if> value='0'>&nbsp;&nbsp;否&nbsp;</option>
 	    </select><i id="cisrecommend">* 默认不推荐</i></li>
 	    <li><label>信息内容</label><p><input type="button" value=" 编辑器图片添加" name="fckpic1" class="btnpic2" onclick="openUpladage('tscompanyContent','','');" /></p>
 	   

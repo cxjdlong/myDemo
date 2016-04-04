@@ -12,11 +12,14 @@
 	</delete>
 
 	<update id="updateByID" parameterType="com.cxjdlong.basic.model.CreateUser">
-		update createuser set className=#{className} where id=#{id}
+		update
+		createuser set
+		seoKeyword=#{seoKeyword},seoDescription=#{seoDescription},userName=#{userName},userPass=#{userPass},userZname=#{userZname},uidcard=#{uidcard},uidcarImg=#{uidcarImg},userqq=#{userqq},userTel=#{userTel},userAddr=#{userAddr},userComname=#{userComname},usComImg=#{usComImg},isRecommend=#{isRecommend},userState=#{userState},userBond=#{userBond},uJoinNum=#{uJoinNum},userMianJi=#{userMianJi},userNote=#{userNote},userstartime=#{userstartime},userEndtime=#{userEndtime},usergliNum=#{usergliNum},guanliEndtime=#{guanliEndtime},updateTimes=now(),openTimes=#{openTimes},userContent=#{userContent},author=#{author},looknum=#{looknum}
+		where id=#{id}
 	</update>
 	
 	<insert id="add" parameterType="com.cxjdlong.basic.model.CreateUser">
-		insert into createuser
+		insert into createuser (seoKeyword,seoDescription,userName,userPass,userZname,uidcard,uidcarImg,userqq,userTel,userAddr,userComname,usComImg,isRecommend,userState,userBond,uJoinNum,userMianJi,userNote,userstartime,userEndtime,usergliNum,guanliEndtime,addTimes,openTimes,userContent,author) values (#{seoKeyword},#{seoDescription},#{userName},#{userPass},#{userZname},#{uidcard},#{uidcarImg},#{userqq},#{userTel},#{userAddr},#{userComname},#{usComImg},#{isRecommend},#{userState},#{userBond},#{uJoinNum},#{userMianJi},#{userNote},#{userstartime},#{userEndtime},#{usergliNum},#{guanliEndtime},now(),#{openTimes},#{userContent},#{author})
 	</insert>
 	
 	<select id="getFindTotal" resultType="int">
@@ -27,4 +30,7 @@
 		SELECT * from createuser order by id desc  limit ${offset},${size}
 	</select>
 	
+	<select id="selectFun" resultType="com.cxjdlong.basic.model.CreateUser" parameterType="String" >
+		select * from createuser where userZname like '%#{selKey}%'  
+	</select> 
 </mapper>

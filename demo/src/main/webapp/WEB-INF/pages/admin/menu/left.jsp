@@ -31,13 +31,13 @@ $(function(){
 
 <body style="background:#f0f9fd;">
 
-	<div class="lefttop"><span></span>通讯录</div>    
+	<div class="lefttop"><span></span>后台管理栏目</div>    
     <dl class="leftmenu">
     <c:forEach items="${rf}" var="rf" varStatus="stuts">
   			
   			    <dd>
 				    <div class="title">
-				    <span><img src="/resources/mfolder/images/leftico01.png" /></span>[${rf.fieldName }]
+				    <span><img src="/resources/mfolder/images/leftico0${stuts.index+1}.png" /></span>[${rf.fieldName }]
 				    </div>
 				    
 		

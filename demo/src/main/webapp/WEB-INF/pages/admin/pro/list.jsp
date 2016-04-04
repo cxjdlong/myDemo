@@ -17,6 +17,7 @@ $(function(){
 	var totalPage = ${pager.totalPage};
 	var totalRecords =${pager.totalRecord} ;
 	var pageNo = ${pager.pageoffSize};
+	var sortID = ${sortID};
 	if(!pageNo){
 		pageNo = 1;
 	}
@@ -32,7 +33,7 @@ $(function(){
 		hrefFormer : '/masteLo/pros/list',
 		//链接尾部
 		hrefLatter : '.html',
-		getLink : function(n){return this.hrefFormer +"/"+n+ this.hrefLatter;},	
+		getLink : function(n){return this.hrefFormer +"/"+n+ this.hrefLatter+"?sortID="+sortID;},	
 	});
 });
 </script>
@@ -82,7 +83,7 @@ ${showManage }
         <tbody> 
         <c:forEach items="${pager.dates}" var="pro" varStatus="stuts">
 	        <tr>
-		        <td><input name="chekclistid" type="checkbox" value="${id}" /></td>
+		        <td><input name="chekclistid" type="checkbox" value="${pro.id}" /></td>
 		        <td class="imgtd"><img src="${pro.proImg }" onload="javascript:DrawImage(this,'100');" border="0"/></td>
 		        <td>${pro.productName}</td>
 		        <td>${pro.protype.className}</td>

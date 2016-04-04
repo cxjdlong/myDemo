@@ -85,7 +85,7 @@ ${showManage }
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
-   <sf:form id="myform" method="post" action="/masteLo/master/update.html" modelAttribute="cmaster" onsubmit="return eduMaster();">
+   <sf:form id="myform" method="post" action="/masteLo/master/update.html" modelAttribute="cmaster" onsubmit="return eduMaster();" enctype="multipart/form-data">
     <ul class="forminfo">
 	    <li><label>登陆ID</label><input type="hidden" name="id" value="${muser.id }" /><input id="userid" onblur="ceduMaster('userid');" name="userid" type="text" class="dfinput" readonly value="${muser.userid }" /><i id="cuserid"></i></li>
 	    <li><label>登陆密码</label><input id="userpswd" onblur="ceduMaster('userpswd');" name="userpswd" type="text" class="dfinput" value="default" /><i id="cuserpswd"><font color=red>不修改密码 请输入 【default】</font>* 请输入密码 5到16个字符之间< </i></li>

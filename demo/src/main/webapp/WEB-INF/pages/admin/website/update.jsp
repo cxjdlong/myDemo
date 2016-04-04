@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>网站基本设置</title>
@@ -197,7 +197,7 @@ ${showManage }
     <div class="formbody">
     
     <div class="formtitle"><span>基本信息</span></div>
-   <sf:form id="myform" method="post" action="/masteLo/webset/update.html" modelAttribute="webset" onsubmit="return eduSite();">
+   <sf:form id="myform" method="post" action="/masteLo/webset/update.html" modelAttribute="webset" onsubmit="return eduSite();" enctype="multipart/form-data">
     <ul class="forminfo">
 	    <li><label>关键字</label><input type="hidden" name="id" value='${webconf.id}'/><textarea id="seoKeyword" onblur="ceduSite('seoKeyword');" name="seoKeyword" cols="" rows="" class="textinput">${webconf.seoKeyword }</textarea><i id="cseoKeyword">* 关键字 必须在 5到500个字符之间</i></li>
 	    <li><label>描述</label><textarea id="seoDescription" onblur="ceduSite('seoDescription');" name="seoDescription" cols="" rows="" class="textinput">${webconf.seoDescription }</textarea><i id="cseoDescription">描述必须在5到500个字符之间</i></li>

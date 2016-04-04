@@ -97,12 +97,15 @@ public class MasterServiceImpl implements MasterServiceI {
 		
 	}
 	@Override
+	/**
+	 * true 可以注册 false 不可注册 以存在
+	 */
 	public boolean checkMasterUserID(String userid) {
 		Createmaster muser = masterDao.selectByUserID(userid);
 		if(muser==null){
-			return false;
-		}else{
 			return true;
+		}else{
+			return false;
 		}
 	}
 
