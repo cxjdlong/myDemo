@@ -133,14 +133,19 @@ public class UserController {
 		model.addAttribute("showManage", "<script>alert('信息 删除成功!');</script>");
 		return this.list(model,request);
 	}
+	/**
+	 *  信息 查询功能
+	 * @param model
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping("/select")
-	public String select(Model model,CreateUser user){
-		SystemContext.setPageSize(20);
-		SystemContext.setPageOffset(0);
-		Pager<CreateUser> mp =  userService.selectFun(user);
+	public String select(Model model,HttpServletRequest request){
+
+		Pager<CreateUser> mp =  userService.selectFun(request.getParameter("selectKey"));
 		
 		model.addAttribute("pager", mp);
-		model.addAttribute("sortID",user.getId());
+		model.addAttribute("sortID",request.getParameter("sortID"));
 		return "admin/user/list";
 	}
 	private UserServiceI userService;

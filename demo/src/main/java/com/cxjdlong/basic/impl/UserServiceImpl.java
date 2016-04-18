@@ -70,9 +70,9 @@ public class UserServiceImpl implements UserServiceI {
 	}
 
 	@Override
-	public Pager<CreateUser> selectFun(CreateUser user) {
+	public Pager<CreateUser> selectFun(String selectKey) {
 		
-		List<CreateUser> dates = userDao.selectFun(user.getUserZname());
+		List<CreateUser> dates = userDao.selectFun("%"+selectKey+"%");
 		Pager<CreateUser> pager = new Pager<CreateUser>();
 		pager.setDates(dates);
 		return pager;

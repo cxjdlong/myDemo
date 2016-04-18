@@ -16,6 +16,7 @@ public class WebsiteConf {
 	private String webComaddr ;
 	private String webStel;
 	private String webtel;
+	private String propasswd;
 	
 	public String getId() {
 		return id;
@@ -100,6 +101,12 @@ public class WebsiteConf {
 	}
 	public void setWebtel(String webtel) {
 		this.webtel = webtel;
+	}
+	public String getPropasswd() {
+		return propasswd;
+	}
+	public void setPropasswd(String propasswd) {
+		this.propasswd = propasswd;
 	}
 	
 }

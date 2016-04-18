@@ -14,6 +14,7 @@
 	        var seoDescription = $F('seoDescription');
 	        var webUrl = $F('webUrl');
 	        var webName = $F('webName');
+	        var propasswd = $F('propasswd');
 	        var webComName = $F('webComName');
 	        var webIcp = $F('webIcp');
 	        var webAdmintel = $F('webAdmintel');
@@ -40,6 +41,10 @@
         	if (webName.length<5 || webName.length>500){$('cwebName').innerHTML = '<font color=red>网站名字 输入不符合规范,必须在5到500个字符之间</font>';
         	  return false;
         	 }else{ $('cwebName').innerHTML = "&nbsp;&nbsp;<img src='/resources/mfolder/images/reg4.gif'/>"; }
+        	
+        	if (propasswd.length<5 || propasswd.length>50){$('cpropasswd').innerHTML = '<font color=red>产品密码 输入不符合规范,必须在5到50个字符之间</font>';
+      	  return false;
+      	 }else{ $('cpropasswd').innerHTML = "&nbsp;&nbsp;<img src='/resources/mfolder/images/reg4.gif'/>"; }
         	 
         	if (webComName.length<5 || webComName.length>100){$('cwebComName').innerHTML = '<font color=red>公司名字 输入不符合规范,必须在5到100个字符之间</font>';
         	  return false;
@@ -88,6 +93,7 @@
 	        var seoDescription = $F('seoDescription');
 	        var webUrl = $F('webUrl');
 	        var webName = $F('webName');
+	        var propasswd = $F('propasswd');
 	        var webComName = $F('webComName');
 	        var webIcp = $F('webIcp');
 	        var webAdmintel = $F('webAdmintel');
@@ -122,6 +128,14 @@
         	 }else{ $('cwebName').innerHTML = "&nbsp;&nbsp;<img src='/resources/mfolder/images/reg4.gif'/>"; }
         	 
         		break;
+        		
+        	case "propasswd":
+        		if (propasswd.length<5 || propasswd.length>50){$('cpropasswd').innerHTML = '<font color=red>产品密码  输入不符合规范,必须在5到50个字符之间</font>';
+        	  return false;
+        	 }else{ $('cpropasswd').innerHTML = "&nbsp;&nbsp;<img src='/resources/mfolder/images/reg4.gif'/>"; }
+        	 
+        		break;
+        		
 			case "webComName":
         		if (webComName.length<5 || webComName.length>100){$('cwebComName').innerHTML = '<font color=red>公司名字 输入不符合规范,必须在5到50个字符之间</font>';
         	  return false;
@@ -202,7 +216,8 @@ ${showManage }
 	    <li><label>关键字</label><input type="hidden" name="id" value='${webconf.id}'/><textarea id="seoKeyword" onblur="ceduSite('seoKeyword');" name="seoKeyword" cols="" rows="" class="textinput">${webconf.seoKeyword }</textarea><i id="cseoKeyword">* 关键字 必须在 5到500个字符之间</i></li>
 	    <li><label>描述</label><textarea id="seoDescription" onblur="ceduSite('seoDescription');" name="seoDescription" cols="" rows="" class="textinput">${webconf.seoDescription }</textarea><i id="cseoDescription">描述必须在5到500个字符之间</i></li>
 	    <li><label>网址</label><input id="webUrl" onblur="ceduSite('webUrl');" name="webUrl" type="text" class="dfinput" value="${webconf.webUrl }" /><i id="cwebUrl">* 网站地址 必须在5到50个字符之间</i></li>
-	    <li><label>网站名</label><input id="webName" onblur="ceduSite('webName');" name="webName" type="text" class="dfinput" value="${webconf.webName }" /><i id="cwebName">* 网站名字  必须在5到500个字符之间</i></li>	    
+	    <li><label>网站名</label><input id="webName" onblur="ceduSite('webName');" name="webName" type="text" class="dfinput" value="${webconf.webName }" /><i id="cwebName">* 网站名字  必须在5到500个字符之间</i></li>
+	    <li><label>产品密码</label><input id="propasswd" onblur="ceduSite('propasswd');" name="propasswd" type="text" class="dfinput" value="${webconf.propasswd }" /><i id="cpropasswd">* 查询密码  必须在5到50个字符之间</i></li>	    
 	    <li><label>公司名字</label><input id="webComName" onblur="ceduSite('webComName');" name="webComName" type="text" class="dfinput" value="${webconf.webComName }" /><i id="cwebComName">* 公司名字 必须在5到50个字符之间</i></li>
 	    <li><label>管理员电话</label><input id="webAdmintel" onblur="ceduSite('webAdmintel');" name="webAdmintel" type="text" class="dfinput" value="${webconf.webAdmintel }" /><i id="cwebAdmintel">* 管理员电话 必须在5到15个字符之间</i></li>
 	    <li><label>管理员名字</label><input id="webAdminName" onblur="ceduSite('webAdminName');" name="webAdminName" type="text" class="dfinput" value="${webconf.webAdminName }" /><i id="cwebAdminName">* 管理名字 必须在2到20个字符之间</i></li>

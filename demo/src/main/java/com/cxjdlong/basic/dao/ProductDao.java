@@ -21,4 +21,6 @@ public interface ProductDao {
 	List<CreateProduct> getFind(Map<String, String> map);
 	
 	int getFindTotal();
+	
+	List<CreateProduct> selectFun(@Param(value="selKey") String  selKey);
 }

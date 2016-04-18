@@ -60,6 +60,7 @@ public class IndexController {
 			
 		}else{
 			model.addAttribute("loginUser", masterOne);
+			masterService.updateMasterLogin(masterOne);
 			return "redirect:/admin/main.html";
 		}
 		

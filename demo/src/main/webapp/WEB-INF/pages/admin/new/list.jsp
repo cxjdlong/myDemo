@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -46,7 +48,7 @@ ${showManage }
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="/menu/right.html">首页</a></li>
+    <li><a href="/cxjdlong/menu/right.html">首页</a></li>
     <li><a href="#">新闻列表</a></li>
     </ul>
     </div>
@@ -56,12 +58,8 @@ ${showManage }
     <div class="tools">
     
     	<ul class="toolbar"><!-- 按钮html -->${sortButtonString }</ul>
-        
-        
-        <ul class="toolbar1">
-        <li><span><img src="/resources/mfolder/images/t05.png" /></span>设置</li>
-        </ul>
-    
+      <ul class="toolbar1"><li><span><img src="/resources/mfolder/images/t05.png" /></span>设置</li></ul>
+      <ul class="seachform"><sf:form id="myform" method="get" modelAttribute="user" enctype="multipart/form-data" action="/masteLo/news/select.html"><input name="sortID" type="hidden" value="${sortID}"> <input name="selectKey" type="text" class="scinput" value=""/>&nbsp;&nbsp;<input type="submit" class="scbtn" value="查询"/></sf:form></ul>
     </div>
     
     
@@ -84,11 +82,11 @@ ${showManage }
 	        <tr>
 		        <td><input name="chekclistid" type="checkbox" value="${ news.id}" /></td>
 		        <td class="imgtd"><img src="${news.newsImg }" onload="javascript:DrawImage(this,'100');" border="0"/></td>
-		        <td>-${ news.id}-${news.newsTitle}</td>
+		        <td>${news.newsTitle}</td>
 		        <td>${news.newstype.className}</td>
 		        <td><c:if test="${news.isrecommend==1 }"> <font color="red">推荐</font></c:if><c:if test="${news.isrecommend <1 }">否</c:if></td>
 		        <td>${news.author}</td>
-		        <td>${news.addtimes}</td>
+		        <td><fmt:formatDate pattern="yyyy-MM-dd hh:mm:ss" value="${news.addtimes}" /></td>
 		        <td>${news.looknum}</td>
 	        </tr>  
 	    </c:forEach>   

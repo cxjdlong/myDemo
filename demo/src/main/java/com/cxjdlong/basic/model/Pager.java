@@ -62,7 +62,7 @@ public class Pager<E> {
 	}
 	public void setTotalPage() {
 	
-	//	this.totalPage = (totalRecord+pageSize-1)/pageSize;
+		this.totalPage = (totalRecord+pageSize-1)/pageSize;
 	}
 	
 	

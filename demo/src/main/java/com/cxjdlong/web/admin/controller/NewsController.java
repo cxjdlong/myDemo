@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.cxjdlong.basic.model.CreateProduct;
 import com.cxjdlong.basic.model.Createnews;
 import com.cxjdlong.basic.model.Createnewstype;
 import com.cxjdlong.basic.model.Pager;
@@ -134,6 +135,7 @@ public class NewsController {
 		return "admin/new/add";
 		
 	}
+	
 	/**
 	 * 信息 删除功能
 	 * @param model
@@ -148,6 +150,22 @@ public class NewsController {
 		return this.list(model,request);
 	}
 	
+	/**
+	 *  信息 查询功能
+	 * @param model
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/select")
+	public String select(Model model,HttpServletRequest request){
+
+		Pager<Createnews> mp =  newsService.selectFun(request.getParameter("selectKey"));
+		
+		model.addAttribute("pager", mp);
+		model.addAttribute("sortID",request.getParameter("sortID"));
+		return "admin/new/list";
+	}
+
 	private NewsServiceI newsService;
 	private NewsTypeServiceI newstypeService;
 

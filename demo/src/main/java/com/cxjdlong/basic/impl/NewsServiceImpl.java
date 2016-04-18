@@ -69,4 +69,12 @@ public class NewsServiceImpl implements NewsServiceI {
 		return pager;
 	}
 
+	@Override
+	public Pager<Createnews> selectFun(String selectKey) {
+		List<Createnews> dates = newsDao.selectFun("%"+selectKey+"%");
+		Pager<Createnews> pager = new Pager<Createnews>();
+		pager.setDates(dates);
+		return pager;
+	}
+
 }

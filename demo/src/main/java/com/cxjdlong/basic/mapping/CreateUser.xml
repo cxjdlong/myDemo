@@ -31,6 +31,6 @@
 	</select>
 	
 	<select id="selectFun" resultType="com.cxjdlong.basic.model.CreateUser" parameterType="String" >
-		select * from createuser where userZname like '%#{selKey}%'  
+		select * from createuser where userZname like #{selKey} or userTel like #{selKey} or userAddr like #{selKey}  or userComname like #{selKey}
 	</select> 
 </mapper>

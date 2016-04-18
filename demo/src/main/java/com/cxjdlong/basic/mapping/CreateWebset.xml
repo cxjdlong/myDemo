@@ -12,7 +12,7 @@
 	</select>
 
 	<update id="updateByID" parameterType="com.cxjdlong.basic.model.WebsiteConf">
-        update websiteconf set seoKeyword=#{seoKeyword},seoDescription=#{seoDescription},webUrl = #{webUrl},webName=#{webName}, webComName=#{webComName},webIcp=#{webIcp},webAdmintel=#{webAdmintel},webAdminName=#{webAdminName},webAdminqq=#{webAdminqq},webEmail=#{webEmail},webComaddr=#{webComaddr},webStel=#{webStel},webtel=#{webtel} where id = #{id}
+        update websiteconf set seoKeyword=#{seoKeyword},seoDescription=#{seoDescription},webUrl = #{webUrl},webName=#{webName}, webComName=#{webComName},webIcp=#{webIcp},webAdmintel=#{webAdmintel},webAdminName=#{webAdminName},webAdminqq=#{webAdminqq},webEmail=#{webEmail},webComaddr=#{webComaddr},webStel=#{webStel},webtel=#{webtel},propasswd=#{propasswd}  where id = #{id}
   </update>
 	
 </mapper>

@@ -47,7 +47,7 @@ ${showManage }
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="/menu/right.html">首页</a></li>
+    <li><a href="/cxjdlong/menu/right.html">首页</a></li>
     <li><a href="#">广告图片列表</a></li>
     </ul>
     </div>

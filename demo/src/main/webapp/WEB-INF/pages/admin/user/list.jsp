@@ -59,7 +59,7 @@ ${showManage }
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="/menu/right.html">首页</a></li>
+    <li><a href="/cxjdlong/menu/right.html">首页</a></li>
     <li><a href="#">加盟商列表</a></li>
     </ul>
     </div>
@@ -70,7 +70,7 @@ ${showManage }
     
     	<ul class="toolbar"><!-- 按钮html -->${sortButtonString }</ul>
       <ul class="toolbar1"><li><span><img src="/resources/mfolder/images/t05.png" /></span>设置</li></ul>
-  		<ul class="seachform"> <sf:form id="myform" method="post" modelAttribute="user" action="/masteLo/users/select.html"><input name="id" type="text" value="${sortID}"> <input name="userZname" type="text" class="scinput" value=""/>&nbsp;&nbsp;<input type="submit" class="scbtn" value="查询"/></sf:form></ul>
+  		<ul class="seachform"><sf:form id="myform" method="get" modelAttribute="user" enctype="multipart/form-data" action="/masteLo/users/select.html"><input name="sortID" type="hidden" value="${sortID}"> <input name="selectKey" type="text" class="scinput" value=""/>&nbsp;&nbsp;<input type="submit" class="scbtn" value="查询"/></sf:form></ul>
     </div>
      </div>
     <table class="imgtable">

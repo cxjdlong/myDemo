@@ -35,4 +35,8 @@
 	<select id="getFindTotal" resultType="int">
 		select count(id) from createproduct 
 	</select>
+	
+	<select id="selectFun" resultMap="prosMap" parameterType="String" >
+		SELECT * from createproduct t1 LEFT JOIN createprotype t2 on (t1.proClassId=t2.id) where t1.productName like #{selKey} or t1.proContent like #{selKey}
+	</select> 
 </mapper>

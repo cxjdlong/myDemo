@@ -35,4 +35,8 @@
 	<select id="getFindTotal" resultType="int">
 		select count(id) from createnews 
 	</select>
+	
+	<select id="selectFun" resultMap="newsMap" parameterType="String" >
+		SELECT *,t1.id as 'n_id' from createnews t1 left JOIN createnewstype t2 ON (t1.classID=t2.id) where t1.newsTitle like #{selKey} or t1.newsContent like #{selKey}
+	</select>
 </mapper>

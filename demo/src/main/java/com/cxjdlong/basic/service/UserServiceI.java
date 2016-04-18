@@ -15,5 +15,5 @@ public interface UserServiceI {
 	
 	public Pager<CreateUser> find();
 
-	public Pager<CreateUser> selectFun(CreateUser user);
+	public Pager<CreateUser> selectFun(String selectKey);
 }

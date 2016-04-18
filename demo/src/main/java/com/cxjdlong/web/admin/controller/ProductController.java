@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cxjdlong.basic.model.CreateProduct;
+import com.cxjdlong.basic.model.CreateUser;
 import com.cxjdlong.basic.model.Createprotype;
 import com.cxjdlong.basic.model.Pager;
 import com.cxjdlong.basic.model.SystemContext;
@@ -143,7 +144,7 @@ public class ProductController {
 		
 	}
 	/**
-	 * 信息 删除功能
+	 *  信息 删除功能
 	 * @param model
 	 * @param request
 	 * @return
@@ -155,7 +156,21 @@ public class ProductController {
 		model.addAttribute("showManage", "<script>alert('信息 删除成功!');</script>");
 		return this.list(model,request);
 	}
-	
+	/**
+	 *  信息 查询功能
+	 * @param model
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/select")
+	public String select(Model model,HttpServletRequest request){
+
+		Pager<CreateProduct> mp =  productService.selectFun(request.getParameter("selectKey"));
+		
+		model.addAttribute("pager", mp);
+		model.addAttribute("sortID",request.getParameter("sortID"));
+		return "admin/pro/list";
+	}
 	
 	private ProtypeServiceI protypeService;
 

@@ -21,4 +21,6 @@ public interface CreatenewsDao {
 	List<Createnews> getFind(Map<String, String> map);
 	
 	int getFindTotal();
+	
+	List<Createnews> selectFun(@Param(value="selKey") String  selKey);
 }

@@ -14,4 +14,6 @@ public interface ProductServiceI {
 	public void add(CreateProduct pro);
 	
 	public Pager<CreateProduct> find();
+	
+	public Pager<CreateProduct> selectFun(String selectKey);
 }

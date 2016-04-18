@@ -67,5 +67,12 @@ public class ProductServiceImpl implements ProductServiceI {
 		pager.setTotalPage();
 		return pager;
 	}
+	@Override
+	public Pager<CreateProduct> selectFun(String selectKey) {
+		List<CreateProduct> dates = productDao.selectFun("%"+selectKey+"%");
+		Pager<CreateProduct> pager = new Pager<CreateProduct>();
+		pager.setDates(dates);
+		return pager;
+	}
 
 }
