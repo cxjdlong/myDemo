@@ -1,18 +1,19 @@
-<%@ page contentType="text/html; charset=GB2312" language="java" errorPage="" %>
-
+<%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="sf" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<Script Language="JavaScript" type="text/JavaScript" src="/js/fckupload.js"></Script>
-	<title>×ÊÔ´ÉÏ´«</title>
+	<Script Language="JavaScript" type="text/JavaScript" src="/resources/js/fckupload.js"></Script>
+	<title>èµ„æºä¸Šä¼ </title>
 
  </head>
  <script>
  	function checkupload(){
 
  		if(document.form1.upload.value.length<5){
- 			alert('ÇëÑ¡ÔñÉÏ´«ÎÄ¼ş');
+ 			alert('è¯·é€‰æ‹©ä¸Šä¼ æ–‡ä»¶');
  			document.form1.upload.select();
  			return false;
  			
@@ -20,24 +21,23 @@
  		return true;
  	}
  </script>
-<body>
+<body>1
 <% 
 String editname = request.getParameter("name");
 String uploadTtype = request.getParameter("uploadTtype"); 
 %>
 
-<form name="form1" action="<s:property value="formUrl" />" method="post" enctype="multipart/form-data" onsubmit="return checkupload();">
+<sf:form id="myform" method="post" action="/masteLo/uplad/upPic.html" enctype="multipart/form-data" onsubmit="return checkupload();">
 <font style="color:red;font-size:12px;">${requestScope.typeErrors}</font>
-<input type="file" name="upload" />&nbsp;&nbsp;<input value="ÉÏ´«" type="submit" />
+<input type="file" name="attach" />&nbsp;&nbsp;<input value="ä¸Šä¼ " type="submit" />
 <input type="hidden" name="name" value="<%=editname %>">
-<input type="hidden" name="uploadTtype" value="<%=uploadTtype %>">
-	<s:if test="#request.isok==true">
-		&nbsp;<input type="button" value=" Ìí¼Óµ½Ò³Ãæ " name="s" onClick="<s:property value="fcks"/>" />
-	</s:if>
-	<s:else>
-<font style="color:#FF0000; font-size:12px;"><br/>&nbsp;&nbsp;&nbsp;ÉÏ´«ºóÔÚ¼ÓÈë</font>
-	</s:else>
+	<c:if test="${isok==true }">
+		&nbsp;<input type="button" value=" æ·»åŠ åˆ°é¡µé¢ " name="s" onClick="${fckString}" />
+	</c:if>
+	<c:if test="${request.isok==false }">
+				<font style="color:#FF0000; font-size:12px;"><br/>&nbsp;&nbsp;&nbsp;ä¸Šä¼ ååœ¨åŠ å…¥</font>
+	</c:if>
 
-</form>
+</sf:form>
 </body>
 </html>

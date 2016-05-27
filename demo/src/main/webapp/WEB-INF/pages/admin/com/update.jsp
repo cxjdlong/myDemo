@@ -66,7 +66,7 @@ ${showManage }
 	<div class="place">
     <span>位置：</span>
     <ul class="placeul">
-    <li><a href="/menu/right.html">首页</a></li>
+    <li><a href="/menu/right.html">首页1</a></li>
     <li><a href="#">公司信息</a></li>
     </ul>
     </div>
