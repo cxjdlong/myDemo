@@ -2,16 +2,14 @@ package com.cxjdlong.web.admin.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 
 import org.apache.commons.io.FileUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * WebsetController
@@ -21,12 +19,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.alibaba.fastjson.JSON;
 import com.cxjdlong.basic.exception.UserException;
-import com.cxjdlong.basic.model.User;
-import com.cxjdlong.basic.model.WebsiteConf;
-import com.cxjdlong.basic.service.WebsetServiceI;
+import com.cxjdlong.basic.util.PubFunction;
 
 @Controller
 @RequestMapping("/masteLo/uplad")
@@ -43,20 +39,24 @@ public class UploadController {
 			throw new UserException("file is null");
 			
 		}
-		String rootPath = req.getSession().getServletContext().getRealPath("/resources");
-		System.out.println("root Upload File Path="+rootPath);
-		String picName  = rootPath+File.separator+attach.getOriginalFilename();
-		File f = new File(picName);
+	   
+      String sytemFileStr = req.getSession().getServletContext().getRealPath("/resources");
+
+		/***************  根据 日期 创建上传文件夹          start   ***************************************/
+        Date date = new Date(); 
+        String dateFile =  File.separator + new SimpleDateFormat("yyyy/MM/dd").format(date);
+        File file = new File(sytemFileStr+dateFile);
+      if(!file.exists()){//目录不存在则直接创建
+    	  file.mkdirs();
+        }        
+		String picName  = "/resources"+dateFile+File.separator+PubFunction.getNow()+"."+PubFunction.getStrend(attach.getContentType(), "/", 1);
+		String mkPicFile  = sytemFileStr+dateFile+File.separator+PubFunction.getNow()+"."+PubFunction.getStrend(attach.getContentType(), "/", 1);
+		
+		File f = new File(mkPicFile);
 		FileUtils.copyInputStreamToFile(attach.getInputStream(), f);
-		String miaosu = "reg <br/>描述：reg Post提交";
-		miaosu = miaosu + "<br/>upload :<br/>getName[属性名]="+ attach.getName()+
-						" , <br/>getOriginalFilename[ 文件名]=" + attach.getOriginalFilename()+ 
-						" , <br/>getContentType[类型] =" + attach.getContentType()+
-						" , <br/>文件 file=" + rootPath+"/"+attach.getOriginalFilename();
+	
 		String fckString = "addUploadItem('"+attach.getContentType()+"','"+ picName +"','tscompanyContent');window.close();";
-//		System.out.println(miaosu);
-//		model.addAttribute(miaosu);
-		System.out.println(attach.getContentType());
+;
 		model.addAttribute("fckString",fckString);
 		model.addAttribute("isok",true);
 		
